@@ -637,3 +637,24 @@ footer p {
     margin-bottom: 20px;
   }
 }
+
+
+@media (max-width:800px){
+  .portfolio-card .overlay p{
+    font-size: 7px;
+    
+  }
+  .portfolio-card .overlay h3{
+    font-size: 10px;
+  }
+
+}
+@media (max-width:410px){
+  .portfolio-card .overlay p{
+    font-size: 5px;
+  }
+  .portfolio-card .overlay h3{
+    font-size: 6px;
+  }
+
+}
