@@ -121,7 +121,11 @@
                         firstname: FnameInp.value,
                         lastname: LnameInp.value,
                     })
-                     window.location.href = "index.html";
+                 
+                    localStorage.setItem("registration-just-completed", "true");
+
+                    window.location.href = "index.html";
+                })
                 })
 
                 .catch((error) => {
