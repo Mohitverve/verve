@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>VerveIN</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="book.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <header>
+      <!-- <nav>
+                <img src="logo.png" alt="">
+                <span class="VERVE">VerveIN</span>
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">About</a></li>
+                    <li><a href="intrest.html" target="_blank">Show Interest</a></li>
+                <button class="btn btn-outline-sucess" type="button" id="signoutbutton"> Sign OUT</button>
+                </ul>
+                <div class="search">
+                    <input type="text" placeholder="search">
+                    <i class="ri-search-line"></i>
+                </div>
+            </nav>
+            <h2 id="msg"></h2>
+            <h2 id="greet"></h2> -->
+
+      <!-- New Test Menu  -->
+      <div class="logo">
+        <img src="logo2.png" alt="" />
+        <p class="VERVE">VerveIN</p>
+      </div>
+      <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="intrest.html">Show Interest</a>
+        <div class="search">
+          <input type="text" placeholder="Search.." />
+          <i class="ri-search-line"></i>
+        </div>
+      </nav>
+      <div class="signout-mobile">
+        <button id="signoutbutton">Sign Out</button>
+        <div class="mobile-menu-container">
+          <i class="fa-solid fa-bars" id="hamburger"></i>
+          <i class="fa-solid fa-xmark" id="close-menu"></i>
+          <nav class="mobile-menu">
+            <a href="#">About</a>
+            <a href="#">Show Interest</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <section class="main-book">
+         <h1>Immersive Experiences <br>for Every Classroom</h1>
+         <p>Unlock Limitless Learning Adventures with VR Education</p>
+    </section>
+    <section class="book-form">
+        <div class="book-form-container">
+            <div class="fill-status">
+                <div class="step-1 show-step-1" onclick="showStep(1)">
+                    Topic Selection
+                </div>
+                <hr class="progress">
+                <div class="step-2 show-step-2" onclick="showStep(2)">
+                    Slot Selection
+                </div>
+                <hr class="progress">
+                <div class="step-3 show-step-3" onclick="showStep(3)">
+                    Personal Information
+                </div>
+            </div>  
+            <div class="form-section">
+                <div class="topic-selection-section">
+                    <form id="topicForm">
+                        <label for="subject">Subject:</label>
+                        <select id="subject" name="subject">
+                            <option value="maths">Maths</option>
+                            <option value="physics">Physics</option>
+                            <option value="bio">Bio</option>
+                            <option value="chemistry">Chemistry</option>
+                            <option value="english">English</option>
+                            <option value="economics">Economics</option>
+                        </select>
+            
+                        <label for="topic">Topic:</label>
+                        <input type="text" id="topic" name="topic">
+            
+                        <button type="button" onclick="showSlotSection()">Next</button>
+                    </form>
+                </div>
+            
+                <!-- Slot Selection Section -->
+                <div class="slot-section">
+                    <form id="slotForm">
+                        <label for="date">Select Date:</label>
+                        <input type="date" id="date" name="date" required>
+            
+                        <label for="time">Select Time:</label>
+                        <input type="time" id="time" name="time" required>
+            
+                        <button type="button" onclick="showPersonalInfoSection()">Next</button>
+                    </form>
+                </div>
+            
+                <!-- Personal Information Section -->
+                <div class="personal-info-section">
+                    <form>
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required>
+            
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+            
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required>
+            
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-wrapper">
+          <p>&copy; VerveIN. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      let UserCreds = JSON.parse(localStorage.getItem("user-creds"));
+      let UserInfo = JSON.parse(localStorage.getItem("user-info"));
+
+      let signoutbutton = document.getElementById('signoutbutton');
+
+      let signout = () => {
+          localStorage.removeItem("user-creds");
+          localStorage.removeItem("user-info");
+          window.location.href = 'login.html'
+      }
+      let CheckCred = () => {
+          const auth = getAuth();
+
+          auth.onAuthStateChanged((user) => {
+              if (!user) {
+                  // No user is signed in, redirect to login page
+                  window.location.href = 'index.html';
+              }
+          });
+      }
+
+
+      window.addEventListener('load', CheckCred);
+      signoutbutton.addEventListener('click', signout);
+
+  </script>
+    
+
+    
+    
+    <script src="book.js"></script>
+  </body>
+</html>
