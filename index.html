@@ -201,9 +201,12 @@
                 window.location.href= 'login.html'
             }
 
-            let CheckCred = ()=>{
-                if (!localStorage.getItem("registration-just-completed"))
-                window.location.href = 'login.html'
+           auth.onAuthStateChanged((user) => {
+                    if (!user) {
+                        // No user is signed in, redirect to login page
+                        window.location.href = 'login.html';
+                    }
+                });
             }
 
 
