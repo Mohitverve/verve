@@ -189,19 +189,21 @@
         </footer>
 
 
-        <script>
+       <script>
             let UserCreds = JSON.parse(localStorage.getItem("user-creds"));
             let UserInfo = JSON.parse(localStorage.getItem("user-info"));
 
             let signoutbutton = document.getElementById('signoutbutton');
 
-            let signout = ()=>{
+            let signout = () => {
                 localStorage.removeItem("user-creds");
                 localStorage.removeItem("user-info");
-                window.location.href= 'login.html'
+                window.location.href = 'login.html'
             }
+            let CheckCred = () => {
+                const auth = getAuth();
 
-           auth.onAuthStateChanged((user) => {
+                auth.onAuthStateChanged((user) => {
                     if (!user) {
                         // No user is signed in, redirect to login page
                         window.location.href = 'login.html';
@@ -210,9 +212,9 @@
             }
 
 
-             window.addEventListener('load', CheckCred);
-             signoutbutton.addEventListener('click', signout);
-            
+            window.addEventListener('load', CheckCred);
+            signoutbutton.addEventListener('click', signout);
+
         </script>
  <script src="script.js"></script>
 </body>
