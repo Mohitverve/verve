@@ -127,13 +127,13 @@
                 .then(async(credentials) => {
                     var ref = doc(db, "UserAuthList", credentials.user.uid)
                     const docSnap = await getDoc(ref);
-
-                    if(docSnap.exists()){
-                        localStorage.setItem("user-info", JSON.stringify({
+                    
+                    if (docSnap.exists()) {
+                        sessionStorage.setItem("user-info", JSON.stringify({
                             firstname: docSnap.data().firstname,
                             lastname: docSnap.data().lastname,
                         }))
-                        localStorage.setItem("user-creds",JSON.stringify(credentials));
+                        sessionStorage.setItem("user-creds", JSON.stringify(credentials));
                         window.location.href = "index.html";
 
                     }
