@@ -201,10 +201,13 @@
                 window.location.href = 'login.html'
             }
             let CheckCred = () => {
+                console.log('CheckCred function triggered');
                 const auth = getAuth();
 
                 auth.onAuthStateChanged((user) => {
+                      console.log('Auth state changed:', user);
                     if (!user) {
+                         console.log('Redirecting to login.html');
                         // No user is signed in, redirect to login page
                         window.location.href = 'login.html';
                     }
@@ -214,6 +217,7 @@
 
             window.addEventListener('load', CheckCred);
             signoutbutton.addEventListener('click', signout);
+           CheckCred();
 
         </script>
  <script src="script.js"></script>
