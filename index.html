@@ -213,7 +213,7 @@
                         window.location.href = 'login.html';
                          } else {
         // No user is signed in, continue with the current page or redirect to login
-        window.location.href = 'login.html';
+          localStorage.removeItem("registration-just-completed");
                     }
                 });
             }
