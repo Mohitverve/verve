@@ -191,14 +191,14 @@
 
        <script>
          
-            let UserCreds = JSON.parse(localStorage.getItem("user-creds"));
-            let UserInfo = JSON.parse(localStorage.getItem("user-info"));
+            let UserCreds = JSON.parse( sessionStorage.getItem("user-creds"));
+            let UserInfo = JSON.parse( sessionStorage.getItem("user-info"));
 
             let signoutbutton = document.getElementById('signoutbutton');
 
             let signout = () => {
-                localStorage.removeItem("user-creds");
-                localStorage.removeItem("user-info");
+                 sessionStorage.removeItem("user-creds");
+                 sessionStorage.removeItem("user-info");
                 window.location.href = 'login.html'
             }
             let CheckCred = () => {
