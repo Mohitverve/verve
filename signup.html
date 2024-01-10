@@ -109,31 +109,22 @@
         let Mainform = document.getElementById('Mainform');
 
 
-        let RegisterUser = evt => {
+         let RegisterUser = evt => {
             evt.preventDefault();
 
             createUserWithEmailAndPassword(auth, emailInp.value, passwordInp.value)
                 .then(async (credentials) => {
                     var ref = doc(db, "UserAuthList", credentials.user.uid)
-                    await setDoc(ref, {
+                    await setDoc(ref, { 
                         firstname: FnameInp.value,
                         lastname: LnameInp.value,
                     })
-                    // Set flag to indicate registration just completed
-                    sessionStorage.setItem("registration-just-completed", "true");
-
-                    // Redirect after successful registration
                    
-                    auth.onAuthStateChanged((user) => {
-                if (user) {
-                    // User is signed in, redirect to the main page
-                    window.location.href = 'index.html';
-                } else {
-                    // No user is signed in, continue with the current page or redirect to login
-                    window.location.href = 'login.html';
-                }
-            });
+
+                    alert('Account created successfully! Please proceed to the login page.');
+
                 })
+
                 .catch((error) => {
                     alert(error.message);
                     console.log(error.code);
@@ -142,7 +133,7 @@
 
 
 
-
+           
         }
 
         Mainform.addEventListener('submit', RegisterUser);
