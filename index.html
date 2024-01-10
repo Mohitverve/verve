@@ -189,40 +189,26 @@
         </footer>
 
 
-      <script>
-       
-
-            let UserCreds = JSON.parse( sessionStorage.getItem("user-creds"));
-            let UserInfo = JSON.parse( sessionStorage.getItem("user-info"));
+    
+        <script>
+            let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+            let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
 
             let signoutbutton = document.getElementById('signoutbutton');
 
             let signout = () => {
-                 sessionStorage.removeItem("user-creds");
-                 sessionStorage.removeItem("user-info");
+                sessionStorage.removeItem("user-creds");
+                sessionStorage.removeItem("user-info");
                 window.location.href = 'login.html'
             }
-            let CheckCred = () => {
-                console.log('CheckCred function triggered');
-                const auth = getAuth();
-
-                auth.onAuthStateChanged((user) => {
-                      console.log('Auth state changed:', user);
-                    if (!user) {
-                         console.log('Redirecting to login.html');
-                        // No user is signed in, redirect to login page
-                        window.location.href = 'login.html';
-                         } else {
-        // No user is signed in, continue with the current page or redirect to login
-          localStorage.removeItem("registration-just-completed");
-                    }
-                });
-            }
+           let CheckCred = () => {
+            if (!sessionStorage.getItem("user-creds"))
+            window.location.href= 'login.html'
+           }
 
 
             window.addEventListener('load', CheckCred);
             signoutbutton.addEventListener('click', signout);
-           CheckCred();
 
         </script>
  <script src="script.js"></script>
