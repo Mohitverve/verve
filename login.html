@@ -129,11 +129,11 @@
                     const docSnap = await getDoc(ref);
                     
                     if (docSnap.exists()) {
-                        sessionStorage.setItem("user-info", JSON.stringify({
+                        localStorage.setItem("user-info", JSON.stringify({
                             firstname: docSnap.data().firstname,
                             lastname: docSnap.data().lastname,
                         }))
-                        sessionStorage.setItem("user-creds", JSON.stringify(credentials));
+                        localStorage.setItem("user-creds", JSON.stringify(credentials));
                         window.location.href = "index.html";
 
                     }
