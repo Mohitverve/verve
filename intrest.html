@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+z<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,8 +13,8 @@
         /* Custom styles for dark theme */
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: #1a202c;
-            color: #080808;
+            background-color: #000000;
+            color: #000000;
         }
 
         h2 {
@@ -72,6 +72,7 @@
 
         .max-w-md {
             animation: fadeInUp 0.8s ease-out;
+             color: #000000 ;
         }
     </style>
 </head>
@@ -80,31 +81,31 @@
 
 
 
-<body class="bg-white text-gray-800">
+<body class="bg-white text-gray-800" style= 'background-color: #000000'>
     <div class="container mx-auto p-4">
-        <div class="text-center my-10">
-            <h1 class="text-3xl font-bold mb-2 text-indigo-600">Show Your Interest in VerveIN</h1>
+        <div class="text-center my-10" style='color:#FFFFFF'>
+            <h1 class="text-3xl font-bold mb-2 text-indigo-600" style='color:#fec86a'>Show Your Interest in VerveIN</h1>
             <p class="text-lg">Help us demonstrate the demand for our product to investors.</p>
         </div>
 
-        <div class="max-w-md mx-auto bg-gray-100 p-6 rounded-lg shadow">
+        <div class="max-w-md mx-auto bg-gray-100 p-6 rounded-lg shadow" style= 'background-color: #0d0d0d'>
             <!-- Standard HTML form without Netlify attributes -->
-            <form id="interestForm" name="interestForm" action="https://formspree.io/f/mayrygww" method="POST"
+            <form id="interestForm" name="interestForm" action="https://formspree.io/f/xvoeooyo" method="POST"
                 onsubmit="handleFormSubmission(event)">
                 <div class="mb-4">
-                    <label for="fullName" class="block text-sm font-semibold text-gray-700">Full Name</label>
+                    <label for="fullName" class="block text-sm font-semibold text-white">Full Name</label>
                     <input type="text" id="fullName" name="fullName" placeholder="John Doe" required
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 </div>
 
                 <div class="mb-4">
-                    <label for="email" class="block text-sm font-semibold text-gray-700">Email Address</label>
+                    <label for="email" class="block text-sm font-semibold text-white">Email Address</label>
                     <input type="email" id="email" name="email" placeholder="john@example.com" required
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 </div>
 
                 <div class="mb-6">
-                    <label for="interestLevel" class="block text-sm font-semibold text-gray-700">Interest Level</label>
+                    <label for="interestLevel" class="block text-sm font-semibold text-white">Interest Level</label>
                     <select id="interestLevel" name="interestLevel" required
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                         <option value="">Select an option</option>
@@ -116,7 +117,7 @@
 
                 <div class="flex justify-center">
                     <button type="submit" id="submitBTN"
-                        class="px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        class="px-6 py-2 border border-GOLD text-base  font-medium rounded-md bg-primary text-white bg-#000000 hover:#fec86a">
                         Submit Interest
                     </button>
                 </div>
