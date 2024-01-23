@@ -41,12 +41,13 @@
 
       <!-- New Test Menu  -->
       <div class="logo">
-        <img src="logo2.png" alt="" />
+        <img src="logo.png" alt="" />
         <p class="VERVE">VerveIN</p>
       </div>
       <nav class="menu">
-        <a href="index.html">Home</a>
-        <a href="intrest.html">Show Interest</a>
+        <a href="#">About</a>
+        <a href="#">Show Interest</a>
+        <a href="book.html">Book a Slot</a>
         <div class="search">
           <input type="text" placeholder="Search.." />
           <i class="ri-search-line"></i>
@@ -58,8 +59,9 @@
           <i class="fa-solid fa-bars" id="hamburger"></i>
           <i class="fa-solid fa-xmark" id="close-menu"></i>
           <nav class="mobile-menu">
-             <a href="index.html">home</a>
-            <a href="intrest.html">Show Interest</a>
+            <a href="#">About</a>
+            <a href="#">Show Interest</a>
+            <a href="book.html">Book a Slot</a>
           </nav>
         </div>
       </div>
@@ -70,22 +72,10 @@
     </section>
     <section class="book-form">
         <div class="book-form-container">
-            <div class="fill-status">
-                <div class="step-1 show-step-1" onclick="showStep(1)">
-                    Topic Selection
-                </div>
-                <hr class="progress">
-                <div class="step-2 show-step-2" onclick="showStep(2)">
-                    Slot Selection
-                </div>
-                <hr class="progress">
-                <div class="step-3 show-step-3" onclick="showStep(3)">
-                    Personal Information
-                </div>
-            </div>  
             <div class="form-section">
                 <div class="topic-selection-section">
-                    <form id="topicForm">
+                    <form id="topicForm" action="https://formspree.io/f/mpzvzvra" method="post">
+                      <h2>Topic Selection</h2>
                         <label for="subject">Subject:</label>
                         <select id="subject" name="subject">
                             <option value="maths">Maths</option>
@@ -98,27 +88,14 @@
             
                         <label for="topic">Topic:</label>
                         <input type="text" id="topic" name="topic">
-            
-                        <button type="button" onclick="showSlotSection()">Next</button>
-                    </form>
-                </div>
-            
-                <!-- Slot Selection Section -->
-                <div class="slot-section">
-                    <form id="slotForm">
+
+                        <h2>Slot Selection</h2>
                         <label for="date">Select Date:</label>
                         <input type="date" id="date" name="date" required>
             
                         <label for="time">Select Time:</label>
                         <input type="time" id="time" name="time" required>
-            
-                        <button type="button" onclick="showPersonalInfoSection()">Next</button>
-                    </form>
-                </div>
-            
-                <!-- Personal Information Section -->
-                <div class="personal-info-section">
-                    <form>
+                        <h2>Personal Information</h2>
                         <label for="name">Full Name:</label>
                         <input type="text" id="name" name="name" required>
             
@@ -128,7 +105,7 @@
                         <label for="phone">Phone Number:</label>
                         <input type="tel" id="phone" name="phone" required>
             
-                        <button type="submit">Submit</button>
+                        <button type="submit" onclick="showSlotSection()">Submit</button>
                     </form>
                 </div>
             </div>
@@ -141,37 +118,61 @@
         </div>
       </div>
     </footer>
-    <script>
-      let UserCreds = JSON.parse(localStorage.getItem("user-creds"));
-      let UserInfo = JSON.parse(localStorage.getItem("user-info"));
 
-      let signoutbutton = document.getElementById('signoutbutton');
+    <script src="verve.js"></script>
+<script>
+   function validateForm() {
+            // Get form elements
+            var subject = document.getElementById("subject");
+            var topic = document.getElementById("topic");
+            var date = document.getElementById("date");
+            var time = document.getElementById("time");
+            var name = document.getElementById("name");
+            var email = document.getElementById("email");
+            var phone = document.getElementById("phone");
 
-      let signout = () => {
-          localStorage.removeItem("user-creds");
-          localStorage.removeItem("user-info");
-          window.location.href = 'login.html'
-      }
-      let CheckCred = () => {
-          const auth = getAuth();
+            // Perform basic validation
+            if (subject.value === "") {
+                alert("Please select a subject.");
+                return false;
+            }
 
-          auth.onAuthStateChanged((user) => {
-              if (!user) {
-                  // No user is signed in, redirect to login page
-                  window.location.href = 'index.html';
-              }
-          });
-      }
+            if (topic.value === "") {
+                alert("Please enter a topic.");
+                return false;
+            }
 
+            if (date.value === "") {
+                alert("Please select a date.");
+                return false;
+            }
 
-      window.addEventListener('load', CheckCred);
-      signoutbutton.addEventListener('click', signout);
+            if (time.value === "") {
+                alert("Please select a time.");
+                return false;
+            }
 
-  </script>
-    
+            if (name.value === "") {
+                alert("Please enter your full name.");
+                return false;
+            }
 
-    
-    
-    <script src="book.js"></script>
+            if (email.value === "") {
+                alert("Please enter your email.");
+                return false;
+            }
+
+            if (phone.value === "") {
+                alert("Please enter your phone number.");
+                return false;
+            }
+
+            // Additional validation logic can be added as needed
+
+            // If all validations pass, the form will be submitted
+            return true;
+        }
+  
+
   </body>
 </html>
