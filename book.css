@@ -581,7 +581,7 @@ footer p {
   align-items: center;
 }
 .book-form-container {
-  width: 60%;
+  width: 40%;
   padding: 20px;
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.021);
@@ -595,29 +595,15 @@ footer p {
   justify-content: center;
   align-items: center;
 }
-.fill-status {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+.book-form-container h2{
+  color: white;
+  margin-bottom: 10px;
+  margin-top: 30px;
 }
-
-.fill-status .step-1,
-.fill-status .step-2,
-.fill-status .step-3 {
-  background-color: #cc9e4e;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-  width: 20%;
-}
-
-.fill-status .progress {
-  border: none;
-  height: 4px;
-  background-color: #98999a;
-  width: 20%;
-  margin: 0 10px;
+.book-form-container h2:first-child{
+  color: white;
+  margin-bottom: 10px;
+  margin-top: 0px;
 }
 .form-section {
   margin-top: 20px;
@@ -635,23 +621,23 @@ footer p {
 .form-section input,
 .form-section select {
   width: 100%;
-  padding: 8px;
+  padding: 5px ;
   margin-bottom: 10px;
   box-sizing: border-box;
-  border: none;
   border-radius: 5px;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.1
-  ); /* Glass effect with minimal transparency */
+  border:0;
+  background-color: #0c0c0c; /* Glass effect with minimal transparency */
   color: white; /* Text color */
+  border-bottom: 1px solid #ffffff64;
+  outline: 0;
 }
-
 /* Style the dropdown options */
 .form-section select option {
-  color: rgb(0, 0, 0); /* Text color for options */
+  color: rgb(255, 255, 255); /* Text color for options */
+}
+.form-section input:focus,.form-section select:focus{
+  padding: 8px 5px;
+  transition: all 0.4s;
 }
 /* Button styling */
 .form-section button {
@@ -661,32 +647,8 @@ footer p {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  float: right;
-}
-
-.slot-section input[type="date"],
-.slot-section input[type="time"] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  border: none;
-  border-radius: 5px;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.1
-  ); /* Glass effect with minimal transparency */
-  color: white; /* Text color */
-}
-
-.slot-section, .personal-info-section {
-  display: none;
-}
-.step-1.show-step-1, .step-2.show-step-2, .step-3.show-step-3 {
-  background-color: #cc9e4e;
-  color: black;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 
