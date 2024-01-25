@@ -651,6 +651,9 @@ footer p {
   margin-top: 10px;
 }
 
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
 
 /* Media Query Starts */
 @media only screen and (max-width: 768px) {
