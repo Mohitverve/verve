@@ -14,7 +14,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Roboto", sans-serif;
-  background-color: #0c0c0c;
+  background-color: #000000;
 }
 
 /* Header Starts */
@@ -127,12 +127,6 @@ button#signoutbutton {
   flex-direction: column;
 }
 
-.landing .intro h3 {
-  color: #fbfbfb;
-  font-weight: 400;
-  font-size: 39px;
-  margin-left: 0px;
-}
 .landing .image img{
     margin-left: 100px;
     height: 400px;
@@ -144,6 +138,14 @@ button#signoutbutton {
     filter: grayscale(20%);
     filter: blur(1px);
 }
+
+.landing .intro h3 {
+  color: #fbfbfb;
+  font-weight: 400;
+  font-size: 39px;
+  margin-left: 0px;
+}
+
 .landing .intro h3 span {
   color: #fec86a;
   font-weight: 600;
@@ -202,7 +204,9 @@ button#signoutbutton {
   margin: 25px;
   position: relative;
   text-decoration: underline color(srgb-linear rgb(209, 116, 116) rgb(165, 215, 165) rgb(95, 95, 171));
+  
 }
+
 
 .about .description {
   display: flex;
@@ -212,7 +216,6 @@ button#signoutbutton {
 .about .description .line {
   height: 2.5px;
   width: 400px;
-  background-color: #fec86a;
   margin-right: 32px;
 }
 
@@ -222,7 +225,7 @@ button#signoutbutton {
 }
 
 .about .description p span {
-  color: #fec86a;
+  color: #814ea9;
 }
 
 .skills {
@@ -663,12 +666,14 @@ footer p {
   }
 
 }
-@media (max-width:410px){
-  .portfolio-card .overlay p{
-    font-size: 5px;
+@media (max-width: 410px) {
+    .portfolio-card .overlay p {
+      font-size: 5px;
+    }
+    .portfolio-card .overlay h3 {
+      font-size: 6px;
+    }
   }
-  .portfolio-card .overlay h3{
-    font-size: 6px;
-  }
+  
 
 }
