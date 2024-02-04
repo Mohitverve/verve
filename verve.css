@@ -130,10 +130,20 @@ button#signoutbutton {
 .landing .intro h3 {
   color: #fbfbfb;
   font-weight: 400;
-  font-size: 32px;
-  margin-left: 10vw;
+  font-size: 39px;
+  margin-left: 0px;
 }
-
+.landing .image img{
+    margin-left: 100px;
+    height: 400px;
+    width: 620px;
+    max-width: fit-content;
+    image-rendering: optimizeQuality;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    filter: contrast(1.2) brightness(1.1);
+    filter: grayscale(20%);
+    filter: blur(1px);
+}
 .landing .intro h3 span {
   color: #fec86a;
   font-weight: 600;
@@ -188,6 +198,10 @@ button#signoutbutton {
   font-weight: 700;
   color: #fbfbfb;
   font-family: "Libre Baskerville", serif;
+  text-align: center;
+  margin: 25px;
+  position: relative;
+  text-decoration: underline color(srgb-linear rgb(209, 116, 116) rgb(165, 215, 165) rgb(95, 95, 171));
 }
 
 .about .description {
