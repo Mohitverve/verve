@@ -34,7 +34,7 @@ if (isset($_POST["Login"])) {
      if (password_verify($password, $signup["password"])) {
             session_start();
             $_SESSION["signup"]= "yes";
-            header("location: product.php");
+            header("location: index.php");
             die();
      }else {
         echo "<div class= 'alert alert-danger'>Password Does not match</div>";
