@@ -193,27 +193,7 @@
 
 
     
-        <script>
-            let UserCreds = JSON.parse(localStorage.getItem("user-creds"));
-            let UserInfo = JSON.parse(localStorage.getItem("user-info"));
 
-            let signoutbutton = document.getElementById('signoutbutton');
-
-            let signout = () => {
-                localStorage.removeItem("user-creds");
-                localStorage.removeItem("user-info");
-                window.location.href = 'login.html'
-            }
-           let CheckCred = () => {
-            if (!localStorage.getItem("user-creds"))
-            window.location.href= 'login.html'
-           }
-
-
-            window.addEventListener('load', CheckCred);
-            signoutbutton.addEventListener('click', signout);
-
-        </script>
  <script src="script.js"></script>
 </body>
 
