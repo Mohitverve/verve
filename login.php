@@ -2,7 +2,7 @@
 <?php
 session_start();
 if (isset($_SESSION["signup"])) {
-    header("Location: product.php");
+    header("Location: index.php");
 }  
 
 ?>
