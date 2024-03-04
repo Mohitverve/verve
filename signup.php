@@ -69,7 +69,7 @@ session_start();
             mysqli_stmt_execute($stmt);
             echo "<div class= 'alert alert-success'> You are Registered sucessfully.</div>";
             $_SESSION["signup"]= "yes";
-            header("location: product.php");
+            header("location: index.php");
 
          }else{
             die("Something went wrong");
