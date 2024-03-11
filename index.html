@@ -204,13 +204,9 @@
                 localStorage.removeItem("user-info");
                 window.location.href = 'login.html'
             }
-           let CheckCred = () => {
-            if (!localStorage.getItem("user-creds"))
-            window.location.href= 'login.html'
-           }
+         
 
-
-            window.addEventListener('load', CheckCred);
+           
             signoutbutton.addEventListener('click', signout);
 
         </script>
