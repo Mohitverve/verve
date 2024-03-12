@@ -204,18 +204,42 @@
                 localStorage.removeItem("user-info");
                 window.location.href = 'login.html'
             }
-         
-let CheckCred = () => {
-        if (!localStorage.getItem("user-creds")) {
-            alert('Account created successfully! You are a new user, please sign up');
-            window.location.href = 'signup.html'; // Redirect to the signup page
-        } else {
-            window.location.href = 'index.html'; // Redirect to the login page
-        }
+let CheckCred = async () => {
+    console.log("Checking user credentials...");
+
+    // Check if user credentials are stored in local storage
+    const userCreds = JSON.parse(localStorage.getItem("user-creds"));
+    const userInfo = JSON.parse(localStorage.getItem("user-info"));
+
+    console.log("User credentials from local storage:", userCreds);
+    console.log("User info from local storage:", userInfo);
+
+    if (!userCreds || !userInfo) {
+        console.log("User credentials or info not found in local storage. Redirecting to signup page.");
+        alert('You are a new user or not properly logged in. Please sign up or log in again.');
+        window.location.href = 'signup.html'; // Redirect to the signup page
+        return; // Exit the function early if user credentials are missing
     }
 
-  
-           window.addEventListener('load', CheckCred);
+    // Perform additional checks, such as verifying if the user exists in the database
+    const ref = doc(db, "UserAuthList", userCreds.user.uid);
+    const docSnap = await getDoc(ref);
+
+    console.log("Document snapshot:", docSnap);
+
+    if (docSnap.exists()) {
+        console.log("User exists in the database. Redirecting to index page.");
+        // User exists, redirect to index page
+        window.location.href = 'index.html';
+    } else {
+        console.log("User does not exist in the database. Redirecting to signup page.");
+        // User does not exist, redirect to signup page
+        alert('User does not exist. Please sign up.');
+        window.location.href = 'signup.html';
+    }
+}
+
+window.addEventListener('load', CheckCred);
             signoutbutton.addEventListener('click', signout);
 
         </script>
