@@ -205,16 +205,16 @@
                 window.location.href = 'login.html'
             }
          
-
-    let CheckCred = () => {
-    if (!localStorage.getItem("user-creds")) {
-        alert('Account created successfully! You are a new user, please sign up');
-        window.location.href = 'signup.html'; // Redirect to the signup page
-    } else {
-        window.location.href = 'login.html'; // Redirect to the login page
+let CheckCred = () => {
+        if (!localStorage.getItem("user-creds")) {
+            alert('Account created successfully! You are a new user, please sign up');
+            window.location.href = 'signup.html'; // Redirect to the signup page
+        } else {
+            window.location.href = 'index.html'; // Redirect to the login page
+        }
     }
-}
 
+  
            window.addEventListener('load', CheckCred);
             signoutbutton.addEventListener('click', signout);
 
