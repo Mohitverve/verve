@@ -70,33 +70,41 @@
         let Mainform = document.getElementById('Mainform');
 
 
-         let RegisterUser = evt => {
-            evt.preventDefault();
+        let RegisterUser = evt => {
+    evt.preventDefault();
 
-            createUserWithEmailAndPassword(auth, email.value, password.value)
-                .then(async (credentials) => {
-                    var ref = doc(db, "UserAuthList", credentials.user.uid)
-                    await setDoc(ref, { 
-                        email: email.value,
-                      
-                    })
-                   
+    createUserWithEmailAndPassword(auth, email.value, password.value)
+        .then(async (credentials) => {
+            var ref = doc(db, "UserAuthList", credentials.user.uid);
+            await setDoc(ref, { 
+                email: email.value,
+                // Add additional user info as needed
+                fullname: fullname.value,
+                // Add more fields as needed
+            });
+            
+            // Store user credentials in local storage
+            localStorage.setItem("user-creds", JSON.stringify(credentials));
 
-                   alert('Account created successfully! Redirecting to the Index page.');
-                   window.location.replace("index.html");
+            // Store additional user info in local storage
+            const userInfo = {
+                email: email.value,
+                fullname: fullname.value,
+                
+                // Add more fields as needed
+            };
+            localStorage.setItem("user-info", JSON.stringify(userInfo));
 
-                })
+            alert('Account created successfully! Redirecting to the Main page.');
+            window.location.replace("index.html");
 
-                .catch((error) => {
-                    alert(error.message);
-                    console.log(error.code);
-                    console.log(error.message);
-                })
-
-
-
-           
-        }
+        })
+        .catch((error) => {
+            alert(error.message);
+            console.log(error.code);
+            console.log(error.message);
+        });
+};
 
         Mainform.addEventListener('submit', RegisterUser);
         
