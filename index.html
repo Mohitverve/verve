@@ -205,26 +205,14 @@
                 window.location.href = 'login.html'
             }
          
-let CheckCred = () => {
-    let authInitialized = false;
 
-    firebase.auth().onAuthStateChanged(function(user) {
-        // Ensure that the authentication state is fully initialized
-        if (!authInitialized) {
-            return; // Do nothing until authentication state is fully initialized
-        }
-
-        if (user) {
-            // User is signed in, redirect to index.html or any other authenticated page
-            window.location.href = 'index.html';
-        } else {
-            // No user is signed in, redirect to login.html
-            window.location.href = 'login.html';
-        }
-    });
-
-    // Set authInitialized to true once the onAuthStateChanged listener is attached
-    authInitialized = true;
+    let CheckCred = () => {
+    if (!localStorage.getItem("user-creds")) {
+        alert('Account created successfully! You are a new user, please sign up');
+        window.location.href = 'signup.html'; // Redirect to the signup page
+    } else {
+        window.location.href = 'login.html'; // Redirect to the login page
+    }
 }
 
            window.addEventListener('load', CheckCred);
