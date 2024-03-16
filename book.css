@@ -750,3 +750,17 @@ footer p {
     display: none;
   }
 }
+
+
+.btn-back {
+      background-color: #6c757d;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .btn-back:hover {
+      background-color: #5a6268;
+    }
