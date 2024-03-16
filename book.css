@@ -766,7 +766,7 @@ footer p {
     }
 
 
-.btn-hero{
+.main-book button{
   height: 48px;
   width: 144px;
   margin-top: 2.5vh;
@@ -779,7 +779,7 @@ footer p {
   transition: all ease 0.5s;
 }
 
-.btn-hero:hover {
+.main-book button:hover {
   background-color: #fec86a;
   color: #34353b;
 }
