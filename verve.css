@@ -127,17 +127,7 @@ button#signoutbutton {
   flex-direction: column;
 }
 
-.landing .image img{
-    margin-left: 100px;
-    height: 400px;
-    width: 620px;
-    max-width: fit-content;
-    image-rendering: optimizeQuality;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    filter: contrast(1.2) brightness(1.1);
-    filter: grayscale(20%);
-    filter: blur(1px);
-}
+
 
 .landing .intro h3 {
   color: #fbfbfb;
