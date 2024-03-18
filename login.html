@@ -1,104 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VerveIN</title>
-       <link rel="icon" href="favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel = "stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel = "stylesheet" href="login.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="title">VerveIN</h1>
-        <form action="" method="post" id="Mainform">
-          
-        <div class="form-group">
-            <input type="email" id="email" class="form-control" name="email" placeholder="Email:">
-       </div>
-    
-       
-       <div class="form-group">
-            <input type="password" id="password"   class="form-control" name="password" placeholder="Password:">
-       </div>
-    
-       
-      
-       <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Login" name="submit" >
-       </div>
-    </form>
-    <div><p>Not Registered?  <a href="signup.html">Signup Here</a>  </div>
-    </div>
-    
+  
 
-    <script type="module">
+<div class="container">
+	<!-- code here -->
+	<div class="card">
+		<div class="card-image">	
+			<h2 class="card-heading">
+				 VerveIN
+				<small>Login in to your account</small>
+			</h2>
+		</div>
+		<form class="card-form"  method="post"   id="Mainform">
 
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getFirestore, doc, getDoc} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+						<div class="input">
+				<input type="text" class="input-field"  id="email"   required/>
+				<label class="input-label">Email</label>
+			</div>
+						<div class="input">
+				<input type="password" class="input-field"   id="password"  required/>
+				<label class="input-label">Password</label>
+			</div>
 
 
 
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyAttOBNym78OvLC-sB0QTSnzER5B13YgTg",
-            authDomain: "verve-1883f.firebaseapp.com",
-            databaseURL: "https://verve-1883f-default-rtdb.firebaseio.com",
-            projectId: "verve-1883f",
-            storageBucket: "verve-1883f.appspot.com",
-            messagingSenderId: "88628857972",
-            appId: "1:88628857972:web:8319d4700a9aa0ec9f5521"
-        };
-
-
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore();
-        const auth = getAuth(app);
+			<div class="action">
+				<button class="action-button" type="submit" >Login</button>
+			</div>
+		</form>
+		<div class="card-info">
+			<p>New User?<a href="signup.html">Signup Here</a></p>
+		</div>
+	</div>
+</div>
 
 
-      
-        let email = document.getElementById('email');
-        let password = document.getElementById('password');
-        let Mainform = document.getElementById('Mainform');
+<script type="module">
 
-
-        let SignInUser = evt => {
-            evt.preventDefault();
-
-            signInWithEmailAndPassword (auth, email.value, password.value)
-                .then(async(credentials) => {
-                    var ref = doc(db, "UserAuthList", credentials.user.uid)
-                    const docSnap = await getDoc(ref);
-                    
-                    if (docSnap.exists()) {
-                        localStorage.setItem("user-info", JSON.stringify({
-                            firstname: docSnap.data().firstname,
-                            lastname: docSnap.data().lastname,
-                        }))
-                        localStorage.setItem("user-creds", JSON.stringify(credentials));
-                        window.location.href = "index.html";
-
-                    }
-
-                })
-
-                .catch((error) => {
-                    alert(error.message);
-                    console.log(error.code);
-                    console.log(error.message);
-                })
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 
 
 
-        }
+    const firebaseConfig = {
+        apiKey: "AIzaSyAttOBNym78OvLC-sB0QTSnzER5B13YgTg",
+        authDomain: "verve-1883f.firebaseapp.com",
+        databaseURL: "https://verve-1883f-default-rtdb.firebaseio.com",
+        projectId: "verve-1883f",
+        storageBucket: "verve-1883f.appspot.com",
+        messagingSenderId: "88628857972",
+        appId: "1:88628857972:web:8319d4700a9aa0ec9f5521"
+    };
 
-        Mainform.addEventListener('submit', SignInUser);
-        
-    </script>
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore();
+    const auth = getAuth(app);
 
 
+
+    let email = document.getElementById('email');
+    let password = document.getElementById('password');
+    let Mainform = document.getElementById('Mainform');
+
+
+    let SignInUser = evt => {
+        evt.preventDefault();
+
+        signInWithEmailAndPassword(auth, email.value, password.value)
+            .then(async (credentials) => {
+                var ref = doc(db, "UserAuthList", credentials.user.uid)
+                const docSnap = await getDoc(ref);
+
+                if (docSnap.exists()) {
+                    localStorage.setItem("user-info", JSON.stringify({
+                        email: docSnap.data().email,
+
+                    }))
+                    localStorage.setItem("user-creds", JSON.stringify(credentials));
+                    window.location.href = "index.html";
+
+                }
+
+            })
+
+            .catch((error) => {
+                alert(error.message);
+                console.log(error.code);
+                console.log(error.message);
+            })
+
+
+
+
+    }
+
+    Mainform.addEventListener('submit', SignInUser);
+
+</script>
 
 </body>
 </html>
