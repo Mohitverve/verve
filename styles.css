@@ -24,48 +24,49 @@ input {
 }
 
 .card {
-	margin: 2rem auto;
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	max-width: 425px;
-	background-color: #FFF;
-	border-radius: 10px;
-	box-shadow: 0 10px 20px 0 rgba(#999, .25);
-	padding: .75rem;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    width: 90%; /* Adjusted width */
+    max-width: 600px; /* Increased maximum width */
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px 0 rgba(#999, .25);
+    padding: 1rem; /* Decreased padding */
 }
 
 .card-image {
-	border-radius: 8px;
-	overflow: hidden;
-	padding-bottom: 65%;
-	background-image: url('VRlibrary.jpeg');
-	background-repeat: no-repeat;
-	background-size: 150%;
-	background-position: 0 5%;
-	position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    padding-bottom: 39%; /* Decreased height */
+    background-image: url('1.avif');
+    background-repeat: no-repeat;
+    background-size: cover; /* Adjusted background size */
+    background-position: center;
+    position: relative;
 }
 
 .card-heading {
-	position: absolute;
-	left: 10%;
-	top: 15%;
-	right: 10%;
-	font-size: 1.75rem;
-	font-weight: 700;
-	color: #f4f2ee;
-	line-height: 1.222;
-	small {
-		display: block;
-		font-size: .75em;
-		font-weight: 400;
-		margin-top: .25em;
-	}
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    right: 10%;
+    font-size: 1.5rem; /* Decreased font size */
+    font-weight: 700;
+    color: #f4f2ee;
+    line-height: 1.222;
+    small {
+        display: block;
+        font-size: .75em;
+        font-weight: 400;
+        margin-top: .25em;
+    }
 }
 
 .card-form {
-	padding: 2rem 1rem 0;
+    padding: 1rem;
 }
+
 
 .input {
 	display: flex;
