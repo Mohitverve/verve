@@ -7,7 +7,7 @@
 body {
 	font-family: "DM Sans", sans-serif;
 	line-height: 1.5;
-	background-color: #f4f3f39d;
+	background-color: #242524;
 	padding: 0 2rem;
 }
 
@@ -29,7 +29,7 @@ input {
     flex-direction: column;
     width: 90%; /* Adjusted width */
     max-width: 600px; /* Increased maximum width */
-    background-color: #FFF;
+    background-color: #1c1c1c;
     border-radius: 10px;
     box-shadow: 0 10px 20px 0 rgba(#999, .25);
     padding: 1rem; /* Decreased padding */
@@ -38,8 +38,8 @@ input {
 .card-image {
     border-radius: 8px;
     overflow: hidden;
-    padding-bottom: 39%; /* Decreased height */
-    background-image: url('1.avif');
+    padding-bottom: 12%; /* Decreased height */
+    background-image: url('VRlibrary.jpeg');
     background-repeat: no-repeat;
     background-size: cover; /* Adjusted background size */
     background-position: center;
@@ -79,7 +79,7 @@ input {
 }
 
 .input-label {
-	color: #8597a3;
+	color: #f4f5f5;
 	position: absolute;
 	top: 1.5rem;
 	transition: .25s ease;
@@ -113,9 +113,9 @@ input {
 	padding: 1em;
 	width: 100%;
 	font-weight: 500;
-	background-color: #6658d3;
+	background-color: #f1f1f2;
 	border-radius: 6px;
-	color: #FFF;
+	color: #0b0b0b;
 	border: 0;
 	&:focus {
 		outline: 0;
@@ -126,14 +126,13 @@ input {
 	padding: 1rem 1rem;
 	text-align: center;
 	font-size: .875rem;
-	color: #8597a3;
+	color: #f3f6f8;
 	a {
 		display: block;
 		color: #6658d3;
 		text-decoration: none;
 	}
 }
-
 
 
 
