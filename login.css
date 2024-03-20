@@ -120,6 +120,10 @@ input {
 	&:focus {
 		outline: 0;
 	}
+
+	&:hover { /* Added hover effect */
+			background-color: #fffafa12; /* Adjusted color on hover */
+		}
 }
 
 .card-info {
