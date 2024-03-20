@@ -38,7 +38,7 @@ input {
 .card-image {
     border-radius: 8px;
     overflow: hidden;
-    padding-bottom: 12%; /* Decreased height */
+    padding-bottom: 21%; /* Decreased height */
     background-image: url('VRlibrary.jpeg');
     background-repeat: no-repeat;
     background-size: cover; /* Adjusted background size */
