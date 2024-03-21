@@ -218,12 +218,11 @@ let CheckCred = async () => {
 
     if (!userCreds || !userInfo) {
         console.log("User credentials or info not found in local storage. Redirecting to signup page.");
-       
         window.location.href = 'signup.html'; // Redirect to the signup page
         return; // Exit the function early if user credentials are missing
     }
 
-    // Perform additional checks, such as verifying if the user exists in the database
+    // Check if the user exists in the database
     const ref = doc(db, "UserAuthList", userCreds.user.uid);
     const docSnap = await getDoc(ref);
 
