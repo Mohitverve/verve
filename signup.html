@@ -81,26 +81,21 @@
   const provider = new GoogleAuthProvider();
 
   const googleLogin = document.getElementById("googleSignInBtn");
-  googleLogin.addEventListener("click", function name(params) {
-
-
-    signInWithPopup(auth, provider)
-.then((result) => {
  
-  const credential = GoogleAuthProvider.credentialFromResult(result);
- console.log(user);
-  window.location.href = "../index.html";
- 
-  const user = result.user;
-  
-}).catch((error) => {
-
-  const errorCode = error.code;
-  const errorMessage = error.message;
- 
-});
     
-  })
+googleLogin.addEventListener("click", () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        window.location.href = "index.html"; // Adjust the path if needed
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error(errorCode, errorMessage);
+      });
+  });
 
 
   let fullname = document.getElementById('fullname');
