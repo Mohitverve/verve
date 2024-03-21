@@ -86,10 +86,11 @@
 
     console.log("Sign in with Google button clicked");
 
-    signInWithPopup(auth, provider)
+   signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
         console.log("User signed in:", user);
+        localStorage.setItem("user-creds", JSON.stringify(user));
         window.location.href = "../index.html";
       })
       .catch((error) => {
