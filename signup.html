@@ -5,51 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Signup</title>
   <link rel = "stylesheet" href="styles.css">
-	 <link rel="icon" href="favicon.png" type="image/x-icon">
+ 
+
+
 </head>
 <body>
   
 
 <div class="container">
-	<!-- code here -->
-	<div class="card">
-		<div class="card-image">	
-			<h2 class="card-heading">
-				 VerveIN
-				<small>Let us create your account</small>
-			</h2>
-		</div>
-		<form class="card-form"  method="post"   id="Mainform">
-			<div class="input">
-				<input type="text" class="input-field" id="fullname"  required/>
-				<label class="input-label">Full name</label>
-			</div>
-						<div class="input">
-				<input type="text" class="input-field"  id="email"   required/>
-				<label class="input-label">Email</label>
-			</div>
-						<div class="input">
-				<input type="password" class="input-field"   id="password"  required/>
-				<label class="input-label">Password</label>
-			</div>
+  <!-- code here -->
+  <div class="card">
+    <div class="card-image">	
+      <h2 class="card-heading">
+        VerveIN
+        <small>Let us create your account</small>
+      </h2>
+    </div>
+    <form class="card-form"  method="post"   id="Mainform">
+      <div class="input">
+        <input type="text" class="input-field" id="fullname"  required/>
+        <label class="input-label">Full name</label>
+      </div>
+            <div class="input">
+        <input type="text" class="input-field"  id="email"   required/>
+        <label class="input-label">Email</label>
+      </div>
+            <div class="input">
+        <input type="password" class="input-field"   id="password"  required/>
+        <label class="input-label">Password</label>
+      </div>
 
-     
+    
 
-			<div class="action">
-				<button class="action-button" type="submit" >Get started</button>
-			</div>
-		</form>
-		<div class="card-info">
-			<p>Already Registered?<a href="login.html">Login here</a></p>
-		</div>
-	</div>
+      <div class="action">
+        <button class="action-button" type="submit" >Get started</button>
+      </div>
+    </form>
+    <div class="card-info">
+
+      <p>Already Registered?<a href="login.html">Login here</a></p>
+      <button id="googleSignInBtn" class="google-button">Sign in with Google</button>
+
+      
+    </div>
+  </div>
 </div>
+
 
 <script type="module">
 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+  import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+ 
+
+
 
 
 
@@ -68,6 +78,30 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore();
   const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  const googleLogin = document.getElementById("googleSignInBtn");
+  googleLogin.addEventListener("click", function name(params) {
+
+
+    signInWithPopup(auth, provider)
+.then((result) => {
+ 
+  const credential = GoogleAuthProvider.credentialFromResult(result);
+ console.log(user);
+ window.location.href = "";
+ 
+  const user = result.user;
+  
+}).catch((error) => {
+
+  const errorCode = error.code;
+  const errorMessage = error.message;
+ 
+});
+    
+  })
+
 
   let fullname = document.getElementById('fullname');
   let email = document.getElementById('email');
@@ -112,53 +146,23 @@ createUserWithEmailAndPassword(auth, email.value, password.value)
   });
 };
 
+
+
   Mainform.addEventListener('submit', RegisterUser);
+
+
+ 
+ 
+
   
+
+
+
 </script>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign in with Google Button</title>
-    <!-- Include Google Sign-In JavaScript SDK -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <!-- Configure Google Sign-In -->
-    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
-    <!-- Add custom styles for the button -->
-    <style>
-        /* Center the container horizontally and position it towards the top */
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Adjust to align towards the top */
-            height: 100vh; /* Full height of the viewport */
-            padding-top: 20vh; /* Adjust the top padding to move the button towards the top */
-        }
-    </style>
-</head>
-<body>
-    <!-- Center the button horizontally and position it towards the top of the screen -->
-    <div class="container">
-        <!-- Customize the button using data- attributes provided by Google -->
-        <div class="g-signin2" data-onsuccess="onSignIn" data-width="240" data-height="50" data-longtitle="true"></div>
-    </div>
 
-    <!-- JavaScript function to handle sign-in success -->
-    <script>
-        function onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-            console.log('Name: ' + profile.getName());
-            console.log('Image URL: ' + profile.getImageUrl());
-            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-        }
-    </script>
-</body>
-</html>
 
 
 </body>
-</html>
+</html>   
