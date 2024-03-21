@@ -81,19 +81,21 @@
   const provider = new GoogleAuthProvider();
 
   const googleLogin = document.getElementById("googleSignInBtn");
- 
-    
-googleLogin.addEventListener("click", () => {
+  googleLogin.addEventListener("click", function name(params) {
+
+
+    console.log("Sign in with Google button clicked");
+
     signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
-        window.location.href = "index.html"; // Adjust the path if needed
+        console.log("User signed in:", user);
+        window.location.href = "../index.html";
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.error(errorCode, errorMessage);
+        console.error("Sign-in error:", errorCode, errorMessage);
       });
   });
 
