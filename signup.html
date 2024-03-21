@@ -81,24 +81,29 @@
   const provider = new GoogleAuthProvider();
 
   const googleLogin = document.getElementById("googleSignInBtn");
-  googleLogin.addEventListener("click", function name(params) {
-
-
+googleLogin.addEventListener("click", function name(params) {
     console.log("Sign in with Google button clicked");
 
-   signInWithPopup(auth, provider)
-      .then((result) => {
-        const user = result.user;
-        console.log("User signed in:", user);
-        localStorage.setItem("user-creds", JSON.stringify(user));
-        window.location.href = "../index.html";
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.error("Sign-in error:", errorCode, errorMessage);
-      });
-  });
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            const user = result.user;
+            console.log("User signed in:", user);
+
+            // Extract additional user information from the Google authentication result
+            const { displayName, email } = user;
+
+            // Store user credentials and additional information in local storage
+            localStorage.setItem("user-creds", JSON.stringify(user));
+            localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
+
+            window.location.href = "../index.html";
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error("Sign-in error:", errorCode, errorMessage);
+        });
+});
 
 
   let fullname = document.getElementById('fullname');
