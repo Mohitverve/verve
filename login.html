@@ -39,6 +39,14 @@
 		<div class="card-info">
 			<p>New User?<a href="signup.html">Signup Here</a></p>
 		</div>
+
+		  
+      </div>
+      <div class="button-container">
+        <a href="#" id="googleSignInBtn" class="google-logo-button">
+          <img src="google.png" alt="Google Logo" width="30">
+        </a>
+      </div>
 	</div>
 </div>
 
@@ -47,7 +55,7 @@
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 
 
@@ -66,6 +74,35 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore();
     const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+
+	 const googleLogin = document.getElementById("googleSignInBtn");
+  googleLogin.addEventListener("click", function name(params) {
+      console.log("Sign in with Google button clicked");
+
+      signInWithPopup(auth, provider)
+          .then((result) => {
+              const user = result.user;
+              console.log("User signed in:", user);
+
+              // Extract additional user information from the Google authentication result
+              const { displayName, email } = user;
+
+              // Store user credentials and additional information in local storage
+              localStorage.setItem("user-creds", JSON.stringify(user));
+              localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
+
+              window.location.href = "../index.html";
+          })
+          .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              console.error("Sign-in error:", errorCode, errorMessage);
+          });
+  });
+
+
 
 
 
