@@ -138,5 +138,28 @@ input {
 	}
 }
 
+.button-container {
+		text-align: center; /* Center the button */
+	  }
+
+	.google-logo-button {
+		display: inline-block;
+		background-color: #fff;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		padding: 15px;
+		cursor: pointer;
+		text-decoration: none; /* Remove default anchor underline */
+	  }
+	  
+	  .google-logo-button:hover {
+		background-color: #0d0c0c;
+	  }
+	  
+	  .google-logo-button img {
+		display: block;
+		width: 40px; /* Adjust as needed */
+		height: auto;
+	  }
 
 
