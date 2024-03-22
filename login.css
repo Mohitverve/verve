@@ -34,6 +34,7 @@
 		border-radius: 10px;
 		box-shadow: 0 10px 20px 0 rgba(#999, .25);
 		padding: 1rem; /* Decreased padding */
+		max-height: 550px;
 	}
 
 	.card-image {
