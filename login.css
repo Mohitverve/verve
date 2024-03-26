@@ -3,7 +3,7 @@
 	*, *:after, *:before {
 		box-sizing: border-box;
 		max-height: 625px;
-		margin-top: 5px;
+        margin-top: 5px;
 	}
 
 	body {
@@ -171,14 +171,14 @@
 	  }
 
 	.google-logo-button {
-		display: inline-block;
-		background-color: #fff;
-		border: 1px solid #ccc;
-		border-radius: 5px;
-		padding: 2px;
-		padding-left: 4px;
-		cursor: pointer;
-		text-decoration: none; /* Remove default anchor underline */
+        display: inline-block;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 2px;
+        padding-left: 4px;
+        cursor: pointer;
+        text-decoration: none;
 		
 	  }
 	  
@@ -214,5 +214,3 @@
 			text-decoration: none;
 		}
 	}
-
-
