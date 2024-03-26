@@ -171,16 +171,16 @@
 	  }
 
 	.google-logo-button {
-        display: inline-block;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 2px;
-        padding-left: 4px;
-        cursor: pointer;
-        text-decoration: none;
+            display: inline-block;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 2px;
+            padding-left: 4px;
+            cursor: pointer;
+            text-decoration: none;
 		
-	  }
+	}
 	  
 	  .google-logo-button:hover {
 		background-color: #fffafa12;
