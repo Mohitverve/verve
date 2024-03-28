@@ -211,6 +211,7 @@
 	}
 	.card-info p {
         font-size: 0.85rem; /* Decreased font size for smaller screens */
+	margin-top: -29px;
     }
 
 	.input-label {
