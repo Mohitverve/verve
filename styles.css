@@ -216,3 +216,50 @@
 
 
 
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0 1rem; /* Adjusted padding for smaller screens */
+    }
+
+    .card {
+        width: 100%; /* Adjusted width for smaller screens */
+        max-width: none; /* Removed maximum width */
+        padding: 0.5rem; /* Decreased padding */
+    }
+
+    .card-heading {
+        left: 5%; /* Adjusted position for smaller screens */
+        top: 10%; /* Adjusted position for smaller screens */
+        right: 5%; /* Adjusted position for smaller screens */
+        font-size: 1.25rem; /* Decreased font size for smaller screens */
+    }
+    .card-heading small {
+        font-size: 0.75rem; /* Decreased font size for smaller screens */
+        color: #ffffff; /* Adjusted text color for better visibility */
+    }
+    .card-info p {
+        font-size: 0.85rem; /* Decreased font size for smaller screens */
+    }
+
+    .card-form {
+        padding: 0.5rem; /* Decreased padding for smaller screens */
+    }
+
+    .action-button {
+        font-size: 1rem; /* Decreased font size for smaller screens */
+    }
+
+    .or-line {
+        margin: 10px auto; /* Adjusted margin for smaller screens */
+    }
+
+    .google-logo-button img {
+        width: 30px; /* Decreased image size for smaller screens */
+        height: 25px; /* Decreased image size for smaller screens */
+    }
+
+    .google-logo-button span {
+        font-size: -0.6rem; /* Decreased font size for smaller screens */
+    }
+}
+
