@@ -3,7 +3,7 @@
 	*, *:after, *:before {
 		box-sizing: border-box;
 		max-height: 625px;
-		margin-top: 5px;
+		margin-top: 3px;
 	}
 
 	body {
@@ -261,5 +261,17 @@
     .google-logo-button span {
         font-size: -0.6rem; /* Decreased font size for smaller screens */
     }
+    .or-line:before,
+    .or-line:after {
+        width: 30%; /* Adjusted length of the line for smaller screens */
+    }
+
+    .or-line span {
+        font-size: 0.75rem; /* Decreased font size for smaller screens */
+        margin-right: 10px; /* Adjusted spacing between "OR" and lines */
+        margin-left: 10px; /* Adjusted spacing between lines and text */
+    }
 }
+
+
 
