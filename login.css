@@ -2,6 +2,7 @@
 	*, *:after, *:before {
 		box-sizing: border-box;
 		max-height: 625px;
+		margin-top: 3px;
 	}
 	body {
 		font-family: "DM Sans", sans-serif;
@@ -195,3 +196,57 @@
 			text-decoration: none;
 		}
 	}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+	.card {
+	  width: 95%; /* Adjusted width for smaller screens */
+	  padding: 1rem 1.5rem; /* Adjusted padding */
+	}
+	.card-heading {
+	  font-size: 1.25rem; /* Decreased font size for smaller screens */
+	  top: 10%; /* Adjusted position */
+	  left: 5%; /* Adjusted position */
+	  right: 5%; /* Adjusted position */
+	}
+	.card-info p {
+        font-size: 0.85rem; /* Decreased font size for smaller screens */
+    }
+
+	.input-label {
+	  top: 1rem; /* Adjusted position */
+	}
+  }
+  
+  @media screen and (max-width: 576px) {
+	.card {
+	  width: 100%; /* Adjusted width for even smaller screens */
+	  padding: 1rem 1rem; /* Adjusted padding */
+	}
+	.card-heading {
+	  font-size: 1.1rem; /* Further decreased font size for smallest screens */
+	  top: 8%; /* Adjusted position */
+	  left: 3%; /* Adjusted position */
+	  right: 3%; /* Adjusted position */
+	}
+	.input-label {
+	  top: 0.75rem; /* Adjusted position */
+	}
+	.or-line:before,
+	.or-line:after {
+	  width: 30%; /* Adjusted length of the line for smaller screens */
+	}
+	.or-line span {
+	  font-size: 18px; /* Adjusted font size for smaller screens */
+	}
+	.google-logo-button img {
+	  width: 36px; /* Adjusted size of the Google logo for smaller screens */
+	  height: 26px; /* Adjusted size of the Google logo for smaller screens */
+	}
+	.google-logo-button span {
+	  font-size: 14px; /* Adjusted font size for smaller screens */
+	  line-height: 26px; /* Adjusted line height for smaller screens */
+	}
+  }
+
+  
