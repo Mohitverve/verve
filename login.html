@@ -72,7 +72,7 @@
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-    import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, GithubAuthProvider } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 
 
@@ -121,6 +121,30 @@
 
 
 
+const githubBtn = document.getElementById("github-Btn");
+const githubProvider = new GithubAuthProvider();
+
+githubBtn.addEventListener("click", () => {
+    signInWithPopup(auth, githubProvider)
+    .then((result) => {
+            const user = result.user;
+            console.log("User signed in:", user);
+
+            // Extract additional user information from the Google authentication result
+            const { displayName, email } = user;
+
+            // Store user credentials and additional information in local storage
+            localStorage.setItem("user-creds", JSON.stringify(user));
+            localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
+
+            window.location.href = "../index.html";
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error("Sign-in error:", errorCode, errorMessage);
+        });
+});
 
 
     let email = document.getElementById('email');
