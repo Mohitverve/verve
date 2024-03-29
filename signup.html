@@ -116,6 +116,25 @@ googleLogin.addEventListener("click", function name(params) {
 });
 
 
+
+  var githubProvider = new firebase.auth.GithubAuthProvider();
+
+function SignInUser(){
+  firebase.auth().signInWithPopup(provider).then(res=>{
+    let token = result.credential.accessToken;
+    let user = result.user;
+
+    console.log('user')
+    window.location.href= "index.html";
+  })
+
+  .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error("Sign-in error:", errorCode, errorMessage);
+        });
+
+
   let fullname = document.getElementById('fullname');
   let email = document.getElementById('email');
   let password = document.getElementById('password');
