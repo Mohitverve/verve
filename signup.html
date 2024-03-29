@@ -53,15 +53,16 @@
 
         </a>
       </div>
-
-
-    <div class="button-container">
+    
+      <div class="button-container">
         <a href="#" id="github-Btn" class="github-logo-button">
-          <span>Sign up with Google</span>
+          <span>Sign up with Github</span>
           <img src="github.png" alt="Github Logo" width="30">
 
         </a>
       </div>
+
+
     <div class="card-info">
 
         <p>Already Registered?<a href="login.html">Login here</a></p> 
@@ -75,7 +76,7 @@
 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-  import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+  import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, GithubAuthProvider} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
  
 
 
@@ -124,24 +125,34 @@ googleLogin.addEventListener("click", function name(params) {
         });
 });
 
+const githubBtn = document.getElementById("github-Btn");
+const githubProvider = new GithubAuthProvider();
 
+githubBtn.addEventListener("click", () => {
+    signInWithPopup(auth, githubProvider)
+    .then((result) => {
+            const user = result.user;
+            console.log("User signed in:", user);
 
-  var githubProvider = new firebase.auth.GithubAuthProvider();
+            // Extract additional user information from the Google authentication result
+            const { displayName, email } = user;
 
-function SignInUser(){
-  firebase.auth().signInWithPopup(provider).then(res=>{
-    let token = result.credential.accessToken;
-    let user = result.user;
+            // Store user credentials and additional information in local storage
+            localStorage.setItem("user-creds", JSON.stringify(user));
+            localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
 
-    console.log('user')
-    window.location.href= "index.html";
-  })
-
-  .catch((error) => {
+            window.location.href = "../index.html";
+        })
+        .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.error("Sign-in error:", errorCode, errorMessage);
         });
+});
+
+
+
+
 
 
   let fullname = document.getElementById('fullname');
@@ -206,4 +217,4 @@ createUserWithEmailAndPassword(auth, email.value, password.value)
 
 
 </body>
-</html>   
+</html>     
