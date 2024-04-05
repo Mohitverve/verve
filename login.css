@@ -165,48 +165,32 @@ input {
 }
 
 .button-container {
-    text-align: center; /* Center the button */
-    margin-bottom: 20px;
+    text-align: center;
 }
 
-.google-logo-button{
-
-    display: inline-block;
-    background-color: #333; /* Background color for the button */
-    padding: 10px; /* Adjust padding as needed */
-    border-radius: 5px; /* Optional: Add rounded corners */
-}
-
-
-
-.google-logo-button img{
-
-  vertical-align: middle; /* Align the image vertically in the button */
-}
-
-
+.google-logo-button,
 .github-logo-button {
     display: inline-block;
-    background-color: #333; /* Background color for the button */
-    padding: 10px; /* Adjust padding as needed */
-    border-radius: 5px; /* Optional: Add rounded corners */
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0.5rem; /* Added margin for spacing between buttons */
 }
 
+.google-logo-button img,
 .github-logo-button img {
-    vertical-align: middle; /* Align the image vertically in the button */
+    vertical-align: middle;
 }
 
-
-.card-info {
-    padding: 1rem 1rem;
-    text-align: center;
-    font-size: .875rem;
-    margin-bottom: 2px;
-    color: #f3f6f8;
-    a {
-        display: block;
-        color: #6658d3;
-        text-decoration: none;
-    }
+.card-info{
+    color: #eee;
+    padding-left: 150px;
 }
 
+.card-info a{
+    color: #00008B;
+}
+
+.card-info a:hover{
+    color: #eee;
+}
