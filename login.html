@@ -1,194 +1,220 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel = "stylesheet" href="login.css">
-	 <link rel="icon" href="favicon.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
 </head>
+
 <body>
-  
-
-<div class="container">
-	<!-- code here -->
-	<div class="card">
-		<div class="card-image">	
-			<h2 class="card-heading">
-				 VerveIN
-				<small>Login in to your account</small>
-			</h2>
-		</div>
-		<form class="card-form"  method="post"   id="Mainform">
-
-						<div class="input">
-				<input type="text" class="input-field"  id="email"   required/>
-				<label class="input-label">Email</label>
-			</div>
-						<div class="input">
-				<input type="password" class="input-field"   id="password"  required/>
-				<label class="input-label">Password</label>
-			</div>
 
 
+    <div class="container">
+        <!-- code here -->
+        <div class="card">
+            <div class="card-image">
+                <h2 class="card-heading">
+                    VerveIN
+                    <small>Login in to your account</small>
+                </h2>
+            </div>
+            <form class="card-form" method="post" id="Mainform">
 
-			<div class="action">
-				<button class="action-button" type="submit" >Login</button>
-			</div>
-		</form>
-		 <div class="or-line">
-      <span> OR </span>
+                <div class="input">
+                    <input type="text" class="input-field" id="email" required />
+                    <label class="input-label">Email</label>
+                </div>
+                <div class="input">
+                    <input type="password" class="input-field" id="password" required />
+                    <label class="input-label">Password</label>
+                </div>
+
+
+                <div class="action">
+                    <button class="action-button" type="submit">Login</button>
+                </div>
+                <div>
+                    <h2>Forgot Password</h2>
+                    <input type="email" id="resetPasswordBtn" placeholder="Enter your email">
+                    <button id="resetPasswordBtn">Reset Password</button>
+
+                </div>
+
+            </form>
+            <div class="or-line">
+                <span> OR </span>
+            </div>
+
+            <div class="button-container">
+                <a href="#" id="googleSignInBtn" class="google-logo-button">
+
+                    <img src="google.png" alt="Google Logo" width="30">
+
+                </a>
+            </div>
+
+            <div class="button-container">
+                <a href="#" id="github-Btn" class="github-logo-button">
+
+                    <img src="github.png" alt="Google Logo" width="30">
+
+                </a>
+            </div>
+
+
+
+            <div class="card-info">
+
+                <p>Already Registered?<a href="signup.html">Signup here</a></p>
+            </div>
+
+
+
+        </div>
     </div>
-    
-    <div class="button-container">
-        <a href="#" id="googleSignInBtn" class="google-logo-button">
-         
-          <img src="google.png" alt="Google Logo" width="30">
-
-        </a>
-      </div>
-
-      <div class="button-container">
-        <a href="#" id="github-Btn" class="github-logo-button">
-          
-          <img src="github.png" alt="Google Logo" width="30">
-
-        </a>
-      </div>
 
 
+    <script type="module">
 
-    <div class="card-info">
-
-        <p>Already Registered?<a href="signup.html">Signup here</a></p> 
-      </div>
-    
-
-	
-	</div>
-</div>
-
-
-<script type="module">
-
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-    import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, GithubAuthProvider } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, GithubAuthProvider, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 
 
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyAttOBNym78OvLC-sB0QTSnzER5B13YgTg",
-        authDomain: "verve-1883f.firebaseapp.com",
-        databaseURL: "https://verve-1883f-default-rtdb.firebaseio.com",
-        projectId: "verve-1883f",
-        storageBucket: "verve-1883f.appspot.com",
-        messagingSenderId: "88628857972",
-        appId: "1:88628857972:web:8319d4700a9aa0ec9f5521"
-    };
+        const firebaseConfig = {
+            apiKey: "AIzaSyAttOBNym78OvLC-sB0QTSnzER5B13YgTg",
+            authDomain: "verve-1883f.firebaseapp.com",
+            databaseURL: "https://verve-1883f-default-rtdb.firebaseio.com",
+            projectId: "verve-1883f",
+            storageBucket: "verve-1883f.appspot.com",
+            messagingSenderId: "88628857972",
+            appId: "1:88628857972:web:8319d4700a9aa0ec9f5521"
+        };
 
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore();
-    const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore();
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
 
 
-	 const googleLogin = document.getElementById("googleSignInBtn");
-  googleLogin.addEventListener("click", function name(params) {
-      console.log("Sign in with Google button clicked");
+        const googleLogin = document.getElementById("googleSignInBtn");
+        googleLogin.addEventListener("click", function name(params) {
+            console.log("Sign in with Google button clicked");
 
-      signInWithPopup(auth, provider)
-          .then((result) => {
-              const user = result.user;
-              console.log("User signed in:", user);
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    const user = result.user;
+                    console.log("User signed in:", user);
 
-              // Extract additional user information from the Google authentication result
-              const { displayName, email } = user;
+                    // Extract additional user information from the Google authentication result
+                    const { displayName, email } = user;
 
-              // Store user credentials and additional information in local storage
-              localStorage.setItem("user-creds", JSON.stringify(user));
-              localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
+                    // Store user credentials and additional information in local storage
+                    localStorage.setItem("user-creds", JSON.stringify(user));
+                    localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
 
-              window.location.href = "../index.html";
-          })
-          .catch((error) => {
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              console.error("Sign-in error:", errorCode, errorMessage);
-          });
-  });
-
-
-  const githubBtn = document.getElementById("github-Btn");
-const githubProvider = new GithubAuthProvider();
-
-githubBtn.addEventListener("click", () => {
-    signInWithPopup(auth, githubProvider)
-    .then((result) => {
-            const user = result.user;
-            console.log("User signed in:", user);
-
-            // Extract additional user information from the Google authentication result
-            const { displayName, email } = user;
-
-            // Store user credentials and additional information in local storage
-            localStorage.setItem("user-creds", JSON.stringify(user));
-            localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
-
-            window.location.href = "../index.html";
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error("Sign-in error:", errorCode, errorMessage);
-		alert ("A account already exists with this email.");
+                    window.location.href = "../index.html";
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error("Sign-in error:", errorCode, errorMessage);
+                });
         });
-});
+
+
+        const githubBtn = document.getElementById("github-Btn");
+        const githubProvider = new GithubAuthProvider();
+
+        githubBtn.addEventListener("click", () => {
+            signInWithPopup(auth, githubProvider)
+                .then((result) => {
+                    const user = result.user;
+                    console.log("User signed in:", user);
+
+                    // Extract additional user information from the Google authentication result
+                    const { displayName, email } = user;
+
+                    // Store user credentials and additional information in local storage
+                    localStorage.setItem("user-creds", JSON.stringify(user));
+                    localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
+
+                    window.location.href = "../index.html";
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error("Sign-in error:", errorCode, errorMessage);
+                });
+        });
 
 
 
-    let email = document.getElementById('email');
-    let password = document.getElementById('password');
-    let Mainform = document.getElementById('Mainform');
-
-
-    let SignInUser = evt => {
-        evt.preventDefault();
-
-        signInWithEmailAndPassword(auth, email.value, password.value)
-            .then(async (credentials) => {
-                var ref = doc(db, "UserAuthList", credentials.user.uid)
-                const docSnap = await getDoc(ref);
-
-                if (docSnap.exists()) {
-                    localStorage.setItem("user-info", JSON.stringify({
-                        email: docSnap.data().email,
-
-                    }))
-                    localStorage.setItem("user-creds", JSON.stringify(credentials));
-                    window.location.href = "index.html";
-
-                }
-
-            })
-
-            .catch((error) => {
-                alert(error.message);
-                console.log(error.code);
-                console.log(error.message);
-            })
+        let email = document.getElementById('email');
+        let password = document.getElementById('password');
+        let Mainform = document.getElementById('Mainform');
 
 
 
 
-    }
+        let SignInUser = evt => {
+            evt.preventDefault();
 
-    Mainform.addEventListener('submit', SignInUser);
+            signInWithEmailAndPassword(auth, email.value, password.value)
+                .then(async (credentials) => {
+                    var ref = doc(db, "UserAuthList", credentials.user.uid)
+                    const docSnap = await getDoc(ref);
 
-</script>
+                    if (docSnap.exists()) {
+                        localStorage.setItem("user-info", JSON.stringify({
+                            email: docSnap.data().email,
+
+                        }))
+                        localStorage.setItem("user-creds", JSON.stringify(credentials));
+                        window.location.href = "index.html";
+
+                    }
+
+                })
+
+                .catch((error) => {
+                    alert(error.message);
+                    console.log(error.code);
+                    console.log(error.message);
+                })
+
+
+
+
+        }
+
+        const resetPasswordBtn = document.getElementById("resetPasswordBtn");
+        resetPasswordBtn.addEventListener("click", sendResetEmail);
+        function sendResetEmail() {
+            const email = document.getElementById("email").value;
+            auth.sendPasswordResetEmail(email)
+                .then(() => {
+                    alert("Password reset email sent. Please check your inbox.");
+                })
+                .catch((error) => {
+                    console.error("Error sending password reset email:", error);
+                    alert("An error occurred while sending the password reset email. Please try again later.");
+                });
+        }
+
+
+        Mainform.addEventListener('submit', SignInUser);
+
+
+
+    </script>
 
 </body>
+
 </html>
