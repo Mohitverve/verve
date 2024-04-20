@@ -10,10 +10,7 @@
 </head>
 
 <body>
-
-
     <div class="container">
-        <!-- code here -->
         <div class="card">
             <div class="card-image">
                 <h2 class="card-heading">
@@ -22,64 +19,56 @@
                 </h2>
             </div>
             <form class="card-form" method="post" id="Mainform">
-
                 <div class="input">
                     <input type="text" class="input-field" id="email" required />
                     <label class="input-label">Email</label>
                 </div>
-                <div class="input">
-                    <input type="password" class="input-field" id="password" required />
-                    <label class="input-label">Password</label>
-                </div>
-
+                <!-- Remove the password input field if you don't need it -->
+                <!-- <div class="input">
+                        <input type="password" class="input-field" id="password" required />
+                        <label class="input-label">Password</label>
+                    </div> -->
 
                 <div class="action">
                     <button class="action-button" type="submit">Login</button>
                 </div>
-                <label id="Forgot" style="cursor: pointer; margin-top: 8px; margin-left: 2px; color: white;">Forgot password?</label>
+                <!-- Remove the forgot password label if you don't need it -->
+                <!-- <label id="Forgot" style="cursor: pointer; margin-top: 8px; margin-left: 2px; color: white;">Forgot password?</label> -->
             </form>
             <div class="or-line">
                 <span> OR </span>
             </div>
 
             <div class="button-container">
+                <button id="emailLinkSignIn">Sign in with Email Link</button>
+            </div>
+
+            <div class="button-container">
                 <a href="#" id="googleSignInBtn" class="google-logo-button">
-
                     <img src="google.png" alt="Google Logo" width="30">
-
                 </a>
             </div>
 
             <div class="button-container">
                 <a href="#" id="github-Btn" class="github-logo-button">
-
                     <img src="github.png" alt="Google Logo" width="30">
-
                 </a>
             </div>
 
-
-
             <div class="card-info">
-
                 <p>Already Registered?<a href="signup.html">Signup here</a></p>
             </div>
-
-
-
         </div>
     </div>
 
-
     <script type="module">
-
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-        import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, GithubAuthProvider, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, GithubAuthProvider, sendPasswordResetEmail, signInWithEmailLink, sendSignInLinkToEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { setLogLevel } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        setLogLevel('debug');
 
-
-
-
+        
         const firebaseConfig = {
             apiKey: "AIzaSyAttOBNym78OvLC-sB0QTSnzER5B13YgTg",
             authDomain: "verve-1883f.firebaseapp.com",
@@ -87,120 +76,116 @@
             projectId: "verve-1883f",
             storageBucket: "verve-1883f.appspot.com",
             messagingSenderId: "88628857972",
-            appId: "1:88628857972:web:8319d4700a9aa0ec9f5521"
+            appId: "1:88628857972:web:8319d4700a9aa0ec9f5521",
+            measurementId: "G-VXDMG81NVT"
         };
-
 
         const app = initializeApp(firebaseConfig);
         const db = getFirestore();
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
 
-
+        // Google Sign-In
         const googleLogin = document.getElementById("googleSignInBtn");
-        googleLogin.addEventListener("click", function name(params) {
-            console.log("Sign in with Google button clicked");
-
+        googleLogin.addEventListener("click", () => {
             signInWithPopup(auth, provider)
                 .then((result) => {
                     const user = result.user;
                     console.log("User signed in:", user);
-
-                    // Extract additional user information from the Google authentication result
-                    const { displayName, email } = user;
-
-                    // Store user credentials and additional information in local storage
-                    localStorage.setItem("user-creds", JSON.stringify(user));
-                    localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
-
-                    window.location.href = "../index.html";
+                    // Handle successful sign-in
                 })
                 .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    console.error("Sign-in error:", errorCode, errorMessage);
+                    console.error("Sign-in error:", error);
                 });
         });
 
-
+        // GitHub Sign-In
         const githubBtn = document.getElementById("github-Btn");
         const githubProvider = new GithubAuthProvider();
-
         githubBtn.addEventListener("click", () => {
             signInWithPopup(auth, githubProvider)
                 .then((result) => {
                     const user = result.user;
                     console.log("User signed in:", user);
-
-                    // Extract additional user information from the Google authentication result
-                    const { displayName, email } = user;
-
-                    // Store user credentials and additional information in local storage
-                    localStorage.setItem("user-creds", JSON.stringify(user));
-                    localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
-
-                    window.location.href = "../index.html";
+                    // Handle successful sign-in
                 })
                 .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    console.error("Sign-in error:", errorCode, errorMessage);
+                    console.error("Sign-in error:", error);
                 });
         });
 
+        // Email and Password Sign-In (Optional, keep if needed)
+        // let email = document.getElementById('email');
+        // let password = document.getElementById('password');
+        // let Mainform = document.getElementById('Mainform');
+        // let SignInUser = evt => {
+        //     evt.preventDefault();
+        //     signInWithEmailAndPassword(auth, email.value, password.value)
+        //         .then(async (credentials) => {
+        //             // Handle successful sign-in
+        //         })
+        //         .catch((error) => {
+        //             console.error("Sign-in error:", error);
+        //         });
+        // };
+        // Mainform.addEventListener('submit', SignInUser);
 
+        // Forgot Password (Optional, keep if needed)
+        // let Forgot = document.getElementById('Forgot')
+        // let ForgotPassword = () => {
+        //     sendPasswordResetEmail(auth, email.value)
+        //         .then(() => {
+        //             alert("A password reset mail has been sent to your email address");
+        //         })
+        //         .catch((error) => {
+        //             console.error("Error sending password reset email:", error);
+        //         });
+        // };
+        // Forgot.addEventListener('click', ForgotPassword);
 
-        let email = document.getElementById('email');
-        let password = document.getElementById('password');
-        let Mainform = document.getElementById('Mainform');
-        let Forgot = document.getElementById('Forgot')
+        // Email Link Sign-In
+        const sendEmailLink = () => {
+            const email = document.getElementById('email').value;
+            const actionCodeSettings = {
+                url: window.location.origin + "/login.html",
+                handleCodeInApp: true,
+            };
 
-
-
-        let SignInUser = evt => {
-            evt.preventDefault();
-
-            signInWithEmailAndPassword(auth, email.value, password.value)
-                .then(async (credentials) => {
-                    var ref = doc(db, "UserAuthList", credentials.user.uid)
-                    const docSnap = await getDoc(ref);
-
-                    if (docSnap.exists()) {
-                        localStorage.setItem("user-info", JSON.stringify({
-                            email: docSnap.data().email,
-                        }))
-                        localStorage.setItem("user-creds", JSON.stringify(credentials));
-                        // Redirect to index.html after successful login
-                        window.location.href = "index.html";
-                    }
-                })
-                .catch((error) => {
-                    alert(error.message);
-                    console.log(error.code);
-                    console.log(error.message);
-                })
-        }
-
-        let ForgotPassword = () => {
-            sendPasswordResetEmail(auth, email.value)
+            sendSignInLinkToEmail(auth, email, actionCodeSettings)
                 .then(() => {
-                    alert("A password reset mail has been sent to your email address");
-                    
+                    alert("Sign-in email link sent. Check your email.");
                 })
                 .catch((error) => {
-                    console.log(error.code);
-                    console.log(error.message);
+                    console.error("Error sending email link:", error);
+                });
+        };
+
+        const emailLinkLogin = () => {
+            const emailLink = window.location.search;
+            if (!emailLink) {
+                // If the email link is not present in the URL, send the email link
+                sendEmailLink();
+                return;
+            }
+
+            const email = document.getElementById('email').value;
+            signInWithEmailLink(auth, email, emailLink)
+                .then((result) => {
+                    window.history.replaceState({}, null, window.location.pathname);
+                    const user = result.user;
+                    const credential = GoogleAuthProvider.credentialFromResult(result);
+                    console.log("User signed in:", user);
+                    // Handle successful sign-in
+                    window.location.href = "index.html";
                 })
-        }
+                .catch((error) => {
+                    console.error("Sign-in error:", error);
+                });
+        };
 
-
-        Mainform.addEventListener('submit', SignInUser);
-        Forgot.addEventListener('click', ForgotPassword);
-
-
-
+        const emailLinkSignInBtn = document.getElementById("emailLinkSignIn");
+        emailLinkSignInBtn.addEventListener("click", emailLinkLogin);
     </script>
-
 </body>
 
 </html>
