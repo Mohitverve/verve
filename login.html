@@ -85,19 +85,34 @@
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
 
-        // Google Sign-In
-        const googleLogin = document.getElementById("googleSignInBtn");
-        googleLogin.addEventListener("click", () => {
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    const user = result.user;
-                    console.log("User signed in:", user);
-                    // Handle successful sign-in
-                })
-                .catch((error) => {
-                    console.error("Sign-in error:", error);
-                });
+       const googleLogin = document.getElementById("googleSignInBtn");
+    googleLogin.addEventListener("click", function name(params) {
+      console.log("Sign in with Google button clicked");
+
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          const user = result.user;
+          console.log("User signed in:", user);
+
+           // Log signin event for Google sign-in
+           firebase.analytics().logEvent('signin', { method: 'Google' });
+
+          // Extract additional user information from the Google authentication result
+          const { displayName, email } = user;
+
+          // Store user credentials and additional information in local storage
+          localStorage.setItem("user-creds", JSON.stringify(user));
+          localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
+
+          window.location.href = "../index.html";
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.error("Sign-in error:", errorCode, errorMessage);
         });
+    });
+
 
         // GitHub Sign-In
         const githubBtn = document.getElementById("github-Btn");
