@@ -36,13 +36,7 @@
                 <div class="action">
                     <button class="action-button" type="submit">Login</button>
                 </div>
-                <div>
-                    <h2>Forgot Password</h2>
-                    <input type="email" id="resetPasswordBtn" placeholder="Enter your email">
-                    <button id="resetPasswordBtn">Reset Password</button>
-
-                </div>
-
+                <label id="Forgot" style="cursor: pointer; margin-top: 8px; margin-left: 2px; color: white;">Forgot password?</label>
             </form>
             <div class="or-line">
                 <span> OR </span>
@@ -159,7 +153,7 @@
         let email = document.getElementById('email');
         let password = document.getElementById('password');
         let Mainform = document.getElementById('Mainform');
-
+        let Forgot = document.getElementById('Forgot')
 
 
 
@@ -174,42 +168,34 @@
                     if (docSnap.exists()) {
                         localStorage.setItem("user-info", JSON.stringify({
                             email: docSnap.data().email,
-
                         }))
                         localStorage.setItem("user-creds", JSON.stringify(credentials));
+                        // Redirect to index.html after successful login
                         window.location.href = "index.html";
-
                     }
-
                 })
-
                 .catch((error) => {
                     alert(error.message);
                     console.log(error.code);
                     console.log(error.message);
                 })
-
-
-
-
         }
 
-        const resetPasswordBtn = document.getElementById("resetPasswordBtn");
-        resetPasswordBtn.addEventListener("click", sendResetEmail);
-        function sendResetEmail() {
-            const email = document.getElementById("email").value;
-            auth.sendPasswordResetEmail(email)
+        let ForgotPassword = () => {
+            sendPasswordResetEmail(auth, email.value)
                 .then(() => {
-                    alert("Password reset email sent. Please check your inbox.");
+                    alert("A password reset mail has been sent to your email address");
+                    
                 })
                 .catch((error) => {
-                    console.error("Error sending password reset email:", error);
-                    alert("An error occurred while sending the password reset email. Please try again later.");
-                });
+                    console.log(error.code);
+                    console.log(error.message);
+                })
         }
 
 
         Mainform.addEventListener('submit', SignInUser);
+        Forgot.addEventListener('click', ForgotPassword);
 
 
 
