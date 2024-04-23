@@ -2,7 +2,7 @@
 
 *, *:after, *:before {
     box-sizing: border-box;
-    max-height: 625px;
+    max-height: 550px;
 }
 
 body {
@@ -164,8 +164,15 @@ input {
     margin-left: 20px;
 }
 
+
+.button-container-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
 .button-container {
-    text-align: center;
+    margin: 0 0.25rem;
 }
 
 .google-logo-button,
@@ -175,6 +182,13 @@ input {
     padding: 10px;
     border-radius: 5px;
     margin: 0.5rem; /* Added margin for spacing between buttons */
+
+    
+}
+
+.button-container img {
+    width: 30px; /* Set a fixed width */
+    height: 20px; /* Set a fixed height */
 }
 
 .google-logo-button img,
@@ -184,7 +198,8 @@ input {
 
 .card-info{
     color: #eee;
-    padding-left: 150px;
+    padding-left: 160px; /* Adjust the left padding as needed */
+    padding-right: 1rem;
 }
 
 .card-info a{
