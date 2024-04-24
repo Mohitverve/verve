@@ -213,26 +213,55 @@ input {
         padding: 0 1rem;
     }
 
+    .container {
+        justify-content: center; /* Center the container horizontally */
+    }
     .card {
         width: 100%;
         max-width: none;
         padding: 0.5rem;
-    }
 
-    .card-heading {
-        font-size: 1.2rem;
-    }
 
-    .card-info {
-        padding: 0.5rem;
-    }
+        .or-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+    width: 100%;
+}
 
-    .button-container-wrap {
-        flex-direction: column;
-        align-items: center;
-    }
+.or-line:before,
+.or-line:after {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ccc;
+}
 
-    .button-container {
-        margin: 0.25rem 0;
-    }
+.or-line:before {
+    margin-right: 1rem;
+}
+
+.or-line:after {
+    margin-left: 1rem;
+}
+
+.or-line span {
+    color: white;
+    font-size: 16px;
+    margin: 0 0.5rem;
+}
+
+.card-info {
+    color: #eee;
+    text-align: center;
+    padding: 0.25rem;
+}
+
+.card-info a {
+    color: #00008B;
+}
+
+.card-info a:hover {
+    color: #eee;
 }
