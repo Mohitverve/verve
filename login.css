@@ -45,7 +45,6 @@ input {
     background-position: center;
     position: relative;
 }
-
 .card-heading {
     position: absolute;
     left: 10%;
@@ -261,10 +260,13 @@ input {
 }
 
 
-    .card-heading {
-        font-size: 1.2rem;
-        top: 10%; /* Adjust the top position */
-        small {
-            font-size: 0.9em; /* Increase font size for mobile screens */
+   .card-heading {
+            font-size: 1.2rem;
+            top: 10%; /* Adjust the top position */
+            color: #ffffff; /* Change the text color to white */
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add text shadow for better visibility */
+            small {
+                font-size: 0.9em; /* Increase font size for mobile screens */
+                font-weight: 600; /* Increase font weight for better visibility */
+            }
         }
-    }
