@@ -69,7 +69,6 @@ input {
         margin-top: .25em;
     }
 }
-
 .card-form {
     padding: 1rem;
 }
@@ -265,3 +264,12 @@ input {
 .card-info a:hover {
     color: #eee;
 }
+
+        .card-heading {
+        font-size: 1.2rem;
+        top: 10%; /* Adjust the top position */
+        small {
+            font-size: 0.9em; /* Increase font size for mobile screens */
+        }
+    }
+
