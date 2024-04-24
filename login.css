@@ -279,3 +279,48 @@ input {
         width: 100%;
         max-width: none;
         padding: 0.5rem;
+
+
+        .or-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+    width: 100%;
+}
+
+.or-line:before,
+.or-line:after {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.or-line:before {
+    margin-right: 1rem;
+}
+
+.or-line:after {
+    margin-left: 1rem;
+}
+
+.or-line span {
+    color: white;
+    font-size: 16px;
+    margin: 0 0.5rem;
+}
+
+.card-info {
+    color: #eee;
+    text-align: center;
+    padding: 1rem;
+}
+
+.card-info a {
+    color: #00008B;
+}
+
+.card-info a:hover {
+    color: #eee;
+}
