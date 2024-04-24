@@ -258,14 +258,3 @@ input {
 .card-info a:hover {
     color: #eee;
 }
-
-.card-heading {
-            font-size: 1.2rem;
-            top: 5%; /* Adjust the top position */
-            color: #ffffff; /* Change the text color to white */
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); /* Increase text shadow intensity */
-            small {
-                font-size: 1em; /* Increase font size for mobile screens */
-                font-weight: 700; /* Increase font weight for better visibility */
-            }
-        }
