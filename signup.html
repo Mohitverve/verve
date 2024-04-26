@@ -1,79 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signup</title>
-  <link rel="stylesheet" href="styles.css">
-
-
-
+    <title>Welcome Back</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-
-  <div class="container">
-    <!-- code here -->
-    <div class="card">
-      <div class="card-image">
-        <h2 class="card-heading">
-          VerveIN
-          <small>Let us create your account</small>
-        </h2>
-      </div>
-      <form class="card-form" method="post" id="Mainform">
-        <div class="input">
-          <input type="text" class="input-field" id="fullname" required />
-          <label class="input-label">Full name</label>
+  <form id="Mainform">
+    <div class="container" >
+        <div class="logo">
+            <img src="verveinnovations logo.png" alt="Logo">
         </div>
-        <div class="input">
-          <input type="text" class="input-field" id="email" required />
-          <label class="input-label">Email</label>
-        </div>
-        <div class="input">
-          <input type="password" class="input-field" id="password" required />
-          <label class="input-label">Password</label>
-        </div>
-
-
-
-
-        <div class="action">
-          <button class="action-button" type="submit">Get started</button>
-        </div>
-      </form>
-
-      <div class="or-line">
-        <span> OR </span>
-      </div>
-
-
-      <div class="button-container-wrap">
-        <div class="button-container">
-            <a href="#" id="googleSignInBtn" class="google-logo-button">
-                <img src="google.png" alt="Google Logo" width="30">
-            </a>
-        </div>
-        <div class="button-container">
-            <a href="#" id="github-Btn" class="github-logo-button">
-                <img src="github.png" alt="Google Logo" width="30">
-            </a>
+        <h1>Welcome back</h1>
+        <input type="Full name" placeholder="Full name" id="fullname">
+        <input type="email" placeholder="Email address" id="email" >
+        <input type="password" placeholder="Password" id="password" >
+        <button id="continue">Continue</button>
+        <label id="Forgot" style="cursor: pointer; margin-top: 8px; color: rgb(3, 3, 3);">Forgot password?</label>
+        <hr>
+        <p class="or">OR</p>
+        
+        <button class="third-party" id="googleSignInBtn"><img src="google.png" alt="Google"> Continue with Google Account</button>
+        <button class="third-party" id="github-Btn"><img src="github.png" alt="Apple"> Continue with Github</button>
+        <div class="footer">
+            <a href="#">Terms of use</a> | <a href="#">Privacy policy</a>
         </div>
     </div>
-
-
-
-
-      <div class="card-info">
-
-        <p>Already Registered?<a href="login.html">Login here</a></p>
-      </div>
-
-    </div>
-  </div>
-
+  </form>
 
   <script type="module">
 
@@ -170,8 +128,7 @@
     let email = document.getElementById('email');
     let password = document.getElementById('password');
     let Mainform = document.getElementById('Mainform');
-    let resetPassword = document.getElementById('resetPassword');
-
+    
 
     let RegisterUser = evt => {
       evt.preventDefault();
@@ -224,6 +181,4 @@
 
 
 </body>
-
 </html>
- 
