@@ -30,7 +30,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-input[type="email"] {
+input[type="Email"] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -40,7 +40,7 @@ input[type="email"] {
     font-size: 16px;
 }
 
-input[type="Full name"] {
+input[type="Fname"] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -50,7 +50,7 @@ input[type="Full name"] {
     font-size: 16px;
 }
 
-input[type="password"] {
+input[type="pass"] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
