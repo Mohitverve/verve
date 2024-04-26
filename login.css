@@ -213,6 +213,7 @@ input {
         width: 100%;
         max-width: none;
         padding: 0.5rem;
+    }
 
 
         .or-line {
@@ -222,6 +223,7 @@ input {
     margin: 1rem 0;
     width: 100%;
 }
+
 
 .or-line:before,
 .or-line:after {
@@ -257,4 +259,5 @@ input {
 
 .card-info a:hover {
     color: #eee;
+}
 }
