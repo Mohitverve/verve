@@ -220,7 +220,7 @@ input {
         max-width: none;
         padding: 0.5rem;
 
-
+    }
         .or-line {
     display: flex;
     align-items: center;
@@ -272,4 +272,4 @@ input {
             font-size: 0.9em; /* Increase font size for mobile screens */
         }
     }
-
+}
