@@ -17,12 +17,11 @@
             <img src="verveinnovations logo.png" alt="Logo">
         </div>
         <h1>Welcome back</h1>
-        <input type="Full name" placeholder="Full name" id="fullname">
-        <input type="email" placeholder="Email address" id="email" >
-       <input type="password" placeholder="Password" id="password" autocomplete="current-password">
-
+        <input type="Fname" placeholder="Full name" id="fullname">
+        <input type="Email" placeholder="Email address" id="email" >
+        <input type="password" placeholder="Password" id="pass"  autocomplete="current-password">
         <button id="continue">Continue</button>
-        <label id="Forgot" style="cursor: pointer; margin-top: 8px; color: rgb(3, 3, 3);">Forgot password?</label>
+      
         <hr>
         <p class="or">OR</p>
         
@@ -34,12 +33,13 @@
     </div>
   </form>
 
+  
   <script type="module">
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
     import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, GithubAuthProvider, } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-    import "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+   
 
 
     const firebaseConfig = {
@@ -56,7 +56,7 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore();
     const auth = getAuth(app);
-    const analytics = firebase.analytics();
+    
 
 
 
@@ -127,14 +127,15 @@
 
     let fullname = document.getElementById('fullname');
     let email = document.getElementById('email');
-    let password = document.getElementById('password');
+    let pass = document.getElementById('pass');
     let Mainform = document.getElementById('Mainform');
-    
+   
+
 
     let RegisterUser = evt => {
       evt.preventDefault();
 
-      createUserWithEmailAndPassword(auth, email.value, password.value)
+      createUserWithEmailAndPassword(auth, email.value, pass.value)
         .then(async (credentials) => {
           var ref = doc(db, "UserAuthList", credentials.user.uid);
           await setDoc(ref, {
@@ -158,9 +159,6 @@
 
 
           window.location.replace("index.html");
-
-           // Log signup event
-           firebase.analytics().logEvent('signup', { method: 'email' });
 
         })
         .catch((error) => {
