@@ -20,7 +20,7 @@
         <h1>Welcome back</h1>
         <input type="email" placeholder="Email address" id="email" >
         <input type="password" placeholder="Password" id="password" >
-        <button id="submit">Continue</button>
+        <button id="continue">Continue</button>
         <label id="Forgot" style="cursor: pointer; margin-top: 8px; color: rgb(3, 3, 3);">Forgot password?</label>
         <hr>
         <p class="or">OR</p>
@@ -115,6 +115,8 @@
       let password = document.getElementById('password');
       let Mainform = document.getElementById('Mainform');
       let Forgot = document.getElementById('Forgot')
+const continueButton = document.getElementById('continue');
+         continueButton.addEventListener('click', SignInUser);
 
 
 
