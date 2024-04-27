@@ -33,6 +33,12 @@
     </div>
         </form>
     <script>
+        let email = document.getElementById('email');
+        let password = document.getElementById('password');
+        let Mainform = document.getElementById('Mainform');
+        let Forgot = document.getElementById('Forgot');
+        const continueButton = document.getElementById('continue');
+
         let SignInUser = evt => {
             evt.preventDefault();
 
@@ -91,12 +97,6 @@
         const googleLogin = document.getElementById("googleSignInBtn");
         const githubBtn = document.getElementById("github-Btn");
         const githubProvider = new GithubAuthProvider();
-
-        let email = document.getElementById('email');
-        let password = document.getElementById('password');
-        let Mainform = document.getElementById('Mainform');
-        let Forgot = document.getElementById('Forgot');
-        const continueButton = document.getElementById('continue');
     </script>
 
     <script>
