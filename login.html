@@ -121,15 +121,25 @@
       let SignInUser = evt => {
     evt.preventDefault();
 
+let SignInUser = evt => {
+    evt.preventDefault();
+
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then(async (credentials) => {
             var ref = doc(db, "UserAuthList", credentials.user.uid)
             const docSnap = await getDoc(ref);
 
             if (docSnap.exists()) {
+                let userData = docSnap.data();
+
+                // Check if the user document includes the full name field
+                let fullName = userData.fullName || `${userData.firstName} ${userData.lastName}`;
+
                 localStorage.setItem("user-info", JSON.stringify({
-                    email: docSnap.data().email,
-                }))
+                    email: userData.email,
+                    fullName: fullName
+                }));
+
                 localStorage.setItem("user-creds", JSON.stringify(credentials));
                 // Redirect to index.html after successful login
                 window.location.href = "index.html";
@@ -142,6 +152,7 @@
             console.error("Sign-in error:", error);
         })
 }
+
 
 let ForgotPassword = () => {
     sendPasswordResetEmail(auth, email.value)
