@@ -116,8 +116,7 @@
       let Mainform = document.getElementById('Mainform');
       let Forgot = document.getElementById('Forgot')
 const continueButton = document.getElementById('continue');
-         continueButton.addEventListener('click', SignInUser);
-
+   
 
 
       let SignInUser = evt => {
@@ -159,6 +158,8 @@ const continueButton = document.getElementById('continue');
 
       Mainform.addEventListener('submit', SignInUser);
       Forgot.addEventListener('click', ForgotPassword);
+               continueButton.addEventListener('click', SignInUser);
+
 
 
 
