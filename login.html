@@ -95,56 +95,54 @@
                     console.log(error.message);
                 })
         }
-
-        // Add event listeners after Firebase is initialized
-        app.then(() => {
-            Mainform.addEventListener('submit', SignInUser);
-            Forgot.addEventListener('click', ForgotPassword);
-            continueButton.addEventListener('click', SignInUser);
-
-            googleLogin.addEventListener("click", function name(params) {
-                console.log("Sign in with Google button clicked");
-
-                signInWithPopup(auth, provider)
-                    .then((result) => {
-                        const user = result.user;
-                        console.log("User signed in:", user);
-
-                        const { displayName, email } = user;
-
-                        localStorage.setItem("user-creds", JSON.stringify(user));
-                        localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
-
-                        window.location.href = "../index.html";
-                    })
-                    .catch((error) => {
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                        console.error("Sign-in error:", errorCode, errorMessage);
-                    });
-            });
-
-            githubBtn.addEventListener("click", () => {
-                signInWithPopup(auth, githubProvider)
-                    .then((result) => {
-                        const user = result.user;
-                        console.log("User signed in:", user);
-
-                        const { displayName, email } = user;
-
-                        localStorage.setItem("user-creds", JSON.stringify(user));
-                        localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
-
-                        window.location.href = "../index.html";
-                    })
-                    .catch((error) => {
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                        console.error("Sign-in error:", errorCode, errorMessage);
-                    });
-            });
-        });
     </script>
 
+    <script>
+        Mainform.addEventListener('submit', SignInUser);
+        Forgot.addEventListener('click', ForgotPassword);
+        continueButton.addEventListener('click', SignInUser);
+
+        googleLogin.addEventListener("click", function name(params) {
+            console.log("Sign in with Google button clicked");
+
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    const user = result.user;
+                    console.log("User signed in:", user);
+
+                    const { displayName, email } = user;
+
+                    localStorage.setItem("user-creds", JSON.stringify(user));
+                    localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
+
+                    window.location.href = "../index.html";
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error("Sign-in error:", errorCode, errorMessage);
+                });
+        });
+
+        githubBtn.addEventListener("click", () => {
+            signInWithPopup(auth, githubProvider)
+                .then((result) => {
+                    const user = result.user;
+                    console.log("User signed in:", user);
+
+                    const { displayName, email } = user;
+
+                    localStorage.setItem("user-creds", JSON.stringify(user));
+                    localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
+
+                    window.location.href = "../index.html";
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error("Sign-in error:", errorCode, errorMessage);
+                });
+        });
+    </script>
 </body>
 </html>
