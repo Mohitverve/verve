@@ -119,30 +119,31 @@
 
 
       let SignInUser = evt => {
-          evt.preventDefault();
+    evt.preventDefault();
 
-          signInWithEmailAndPassword(auth, email.value, password.value)
-              .then(async (credentials) => {
-                  var ref = doc(db, "UserAuthList", credentials.user.uid)
-                  const docSnap = await getDoc(ref);
+    signInWithEmailAndPassword(auth, email.value, password.value)
+        .then(async (credentials) => {
+            var ref = doc(db, "UserAuthList", credentials.user.uid)
+            const docSnap = await getDoc(ref);
 
-                  if (docSnap.exists()) {
-                      localStorage.setItem("user-info", JSON.stringify({
-                          email: docSnap.data().email,
-                      }))
-                      localStorage.setItem("user-creds", JSON.stringify(credentials));
-                      // Redirect to index.html after successful login
-                      window.location.href = "index.html";
-                  }
-              })
-              .catch((error) => {
-                  alert(error.message);
-                  console.log(error.code);
-                  console.log(error.message);
-              })
-      }
+            if (docSnap.exists()) {
+                localStorage.setItem("user-info", JSON.stringify({
+                    email: docSnap.data().email,
+                }))
+                localStorage.setItem("user-creds", JSON.stringify(credentials));
+                // Redirect to index.html after successful login
+                window.location.href = "index.html";
+            } else {
+                console.log("User document does not exist");
+            }
+        })
+        .catch((error) => {
+            alert(error.message);
+            console.error("Sign-in error:", error);
+        })
+}
 
-   let ForgotPassword = () => {
+let ForgotPassword = () => {
     sendPasswordResetEmail(auth, email.value)
         .then(() => {
             // Clear stored credentials
@@ -151,10 +152,13 @@
             alert("A password reset mail has been sent to your email address");
         })
         .catch((error) => {
-            console.log(error.code);
-            console.log(error.message);
+            console.error("Password reset error:", error);
+            alert("Failed to send password reset email. Please try again later.");
         })
 }
+
+Mainform.addEventListener('submit', SignInUser);
+Forgot.addEventListener('click', ForgotPassword);
 
 
       Mainform.addEventListener('submit', SignInUser);
