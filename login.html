@@ -131,8 +131,19 @@ let SignInUser = evt => {
             if (docSnap.exists()) {
                 let userData = docSnap.data();
 
-                // Check if the user document includes the full name field
-                let fullName = userData.fullName || `${userData.firstName} ${userData.lastName}`;
+                let fullName;
+
+                if (userData.fullName) {
+                    // If the user document contains a fullName field, use it
+                    fullName = userData.fullName;
+                } else if (userData.firstName && userData.lastName) {
+                    // If the user document contains firstName and lastName fields, construct the full name
+                    fullName = `${userData.firstName} ${userData.lastName}`;
+                } else {
+                    // Handle the case where neither fullName nor firstName/lastName fields exist
+                    console.log("User document does not contain sufficient name information");
+                    return;
+                }
 
                 localStorage.setItem("user-info", JSON.stringify({
                     email: userData.email,
@@ -149,9 +160,8 @@ let SignInUser = evt => {
         .catch((error) => {
             alert(error.message);
             console.error("Sign-in error:", error);
-        })
+        });
 }
-
 
 let ForgotPassword = () => {
     sendPasswordResetEmail(auth, email.value)
