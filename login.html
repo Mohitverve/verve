@@ -147,8 +147,7 @@ let ForgotPassword = () => {
     sendPasswordResetEmail(auth, email.value)
         .then(() => {
             // Clear stored credentials
-            localStorage.removeItem("user-info");
-            localStorage.removeItem("user-creds");
+           
             alert("A password reset mail has been sent to your email address");
         })
         .catch((error) => {
