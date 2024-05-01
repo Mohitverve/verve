@@ -61,34 +61,35 @@
 
 
 
-    
     const provider = new GoogleAuthProvider();
-    const googleLogin = document.getElementById("googleSignInBtn");
-    googleLogin.addEventListener("click", function name(params) {
-      console.log("Sign in with Google button clicked");
 
-      signInWithPopup(auth, provider)
-        .then((result) => {
-          const user = result.user;
-          console.log("User signed in:", user);
 
-           
+      const googleLogin = document.getElementById("googleSignInBtn");
+      googleLogin.addEventListener("click", function name(params) {
+          console.log("Sign in with Google button clicked");
 
-          // Extract additional user information from the Google authentication result
-          const { displayName, email } = user;
+          signInWithPopup(auth, provider)
+              .then((result) => {
+                  const user = result.user;
+                  console.log("User signed in:", user);
 
-          // Store user credentials and additional information in local storage
-          localStorage.setItem("user-creds", JSON.stringify(user));
-          localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
+                  // Extract additional user information from the Google authentication result
+                  const { displayName, email } = user;
 
-          window.location.href = "../index.html";
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.error("Sign-in error:", errorCode, errorMessage);
-        });
-    });
+                  // Store user credentials and additional information in local storage
+                  localStorage.setItem("user-creds", JSON.stringify(user));
+                  localStorage.setItem("user-info", JSON.stringify({ email, displayName }));
+
+                  window.location.href = "../index.html";
+              })
+              .catch((error) => {
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  console.error("Sign-in error:", errorCode, errorMessage);
+              });
+      });
+
+
 
     const githubBtn = document.getElementById("github-Btn");
     const githubProvider = new GithubAuthProvider();
