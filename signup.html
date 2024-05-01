@@ -72,8 +72,7 @@
           const user = result.user;
           console.log("User signed in:", user);
 
-           // Log signin event for Google sign-in
-           firebase.analytics().logEvent('signin', { method: 'Google' });
+           
 
           // Extract additional user information from the Google authentication result
           const { displayName, email } = user;
