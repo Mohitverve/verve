@@ -122,7 +122,9 @@ nav {
 .nav-logo a img {
   height: 40px;
 }
-
+.nav-links .signout{
+  display:none;
+}
 .nav-links ul {
   display: flex;
   list-style: none;
@@ -397,7 +399,7 @@ section.video {
 }
 div.video {
   padding: 40px;
-  background-image: url(64820c597bb824d4fde74928_dark-mode-email-templates[1].webp);
+  background-image: url(images/64820c597bb824d4fde74928_dark-mode-email-templates[1].webp);
   background-size: cover;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -707,8 +709,8 @@ footer .container{
   margin-left: 50px;
 }
 
-/*---------------------MEDIA QUERIES--------------------*/
-/*-----------------For small devices---------------*/
+/---------------------MEDIA QUERIES--------------------/
+/-----------------For small devices---------------/
 
 
 @media screen and ( max-width: 768px){
@@ -939,6 +941,9 @@ a {
     font-weight: 500;
     font-size: 12px;
   }
+  .nav-links .signout {
+    display: flex;
+  }
 }
 @media screen and (max-width: 1177px) {
   .nav-container {
@@ -1030,6 +1035,6 @@ a {
 @media screen and (min-width: 1178px) {
   .nav-container .navOpenBtn,
   .nav-container .navCloseBtn {
-    display: none;
-  }
+    display: none;
+  }
 }
