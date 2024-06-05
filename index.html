@@ -50,7 +50,7 @@
                           <li><a href="book.html">Book Session</a></li>
                           <li><a href="#FAQ">FAQs</a></li>
                           <li><a href="#contact">Contact us</a></li>
-                       <li><a href="#"  class ="signout" id= "signout" >Sign out</a><li>
+                       <li><a href="#"  class ="signout" id= "signoutbtn" >Sign out</a><li>
                          
                       </ul>
                   </div>
@@ -312,9 +312,9 @@
             let UserCreds = JSON.parse(localStorage.getItem("user-creds"));
             let UserInfo = JSON.parse(localStorage.getItem("user-info"));
 
-            let signout = document.getElementById('signout');
+            let signoutbtn = document.getElementById('signoutbtn');
 
-            let signout = () => {
+            let signoutbtn = () => {
                 localStorage.removeItem("user-creds");
                 localStorage.removeItem("user-info");
                 window.location.href = 'login.html'
