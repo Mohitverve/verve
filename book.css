@@ -1,785 +1,147 @@
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:wght@100;300;400;500;700;900&display=swap");
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
-
 body {
-  padding: 0;
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  background-color: #0c0c0c;
-}
-
-/* Header Starts */
-header {
-  display: flex;
-  width: 100%;
-  padding: 20px 20px;
-  justify-content: space-between;
-}
-.logo {
-  display: flex;
-  align-items: center;
-  width: 30%;
-}
-.logo img {
-  width: 50px;
-  filter: invert(70%) sepia(96%) saturate(558%) hue-rotate(359deg)
-    brightness(103%) contrast(106%);
-}
-.logo p {
-  color: white;
-  font-size: 25px;
-}
-.menu {
-  color: white;
-  display: flex;
-  width: 50%;
-  justify-content: flex-end;
-  gap: 30px;
-  font-size: 20px;
-  font-weight: 600;
-  align-items: center;
-}
-.menu a {
-  color: white;
-  text-decoration: none;
-}
-.menu a:hover {
-  color: #fec86a;
-  transition: all 0.4s;
-}
-.mobile-menu {
-  display: none;
-}
-.search {
-  background-color: #3d3e42;
-  display: flex;
-  align-items: center;
-  padding-right: 10px;
-  border-radius: 10px;
-}
-.search input {
-  background-color: #3d3e42;
-  outline: 0;
-  border: 0;
-  padding: 10px;
-  border-radius: 10px;
-}
-.search input::placeholder {
-  color: #98999a;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: normal;
-}
-.search i {
-  color: #98999a;
-  cursor: pointer;
-}
-.search input[type="text"] {
-  color: white;
-  font-size: 15px;
-  text-transform: capitalize;
-}
-button#signoutbutton {
-  padding: 10px 20px;
-  font-size: 15px;
-  font-weight: 500;
-  border-radius: 8px;
-  background: #fec86a;
-  cursor: pointer;
-}
-.signout-mobile {
-  display: flex;
-  gap: 30px;
-}
-#hamburger {
-  display: none;
-}
-#close-menu {
-  display: none;
-}
-.mobile-menu {
-  display: none;
-}
-.mobile-menu-container {
-  display: none;
-}
-
-/* Header Ends */
-.landing {
-  display: flex;
-  height: 90vh;
-  background-color: transparent;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.landing .intro {
-  display: flex;
-  flex-direction: column;
-}
-
-.landing .intro h3 {
-  color: #fbfbfb;
-  font-weight: 400;
-  font-size: 32px;
-  margin-left: 10vw;
-}
-
-.landing .intro h3 span {
-  color: #fec86a;
-  font-weight: 600;
-  font-size: 3.5rem;
-}
-
-.intro button {
-  height: 48px;
-  width: 144px;
-  margin-top: 2.5vh;
-  margin-left: 10vw;
-  background-color: transparent;
-  border: 2px solid #fec86a;
-  border-radius: 8px;
-  color: #fec86a;
-  font-size: 16px;
-  transition: all ease 0.5s;
-}
-
-.intro button:hover {
-  background-color: #fec86a;
-  color: #34353b;
-}
-
-.socials {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  margin-top: 50vh;
-}
-
-.socials .line {
-  background-color: #fec86a;
-  height: 15vh;
-  width: 2.5px;
-}
-
-.socials i {
-  color: #fbfbfb;
-  font-size: 36px;
-}
-
-.about {
-  height: 50vh;
-  width: 100vw;
-  padding: 100px;
-}
-
-.about h1 {
-  font-size: 56px;
-  font-weight: 700;
-  color: #fbfbfb;
-  font-family: "Libre Baskerville", serif;
-}
-
-.about .description {
-  display: flex;
-  align-items: start;
-}
-
-.about .description .line {
-  height: 2.5px;
-  width: 400px;
-  background-color: #fec86a;
-  margin-right: 32px;
-}
-
-.about .description p {
-  color: #fbfbfb;
-  font-size: 20px;
-}
-
-.about .description p span {
-  color: #fec86a;
-}
-
-.skills {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 50px 100px;
-}
-
-.skills h1 {
-  font-size: 56px;
-  font-weight: 700;
-  color: #fbfbfb;
-  font-family: "Libre Baskerville", serif;
-}
-
-.cards {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 50px;
-  gap: 2.5vh;
-}
-
-.skill-card {
-  height: 20vw;
-  width: 20vw;
-  background-color: #3d3e42;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  gap: 2.5vh;
-  transition: all ease 0.5s;
-}
-
-.skill-card:hover {
-  background-color: #fec86a;
-}
-
-.skill-card img {
-  height: 7.5vw;
-  width: 7.5vw;
-  object-fit: contain;
-}
-
-.skill-card h2 {
-  font-size: 24px;
-  font-weight: 400;
-  color: #fbfbfb;
-}
-
-.portfolio {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 50px 100px;
-}
-
-.portfolio h1 {
-  font-size: 56px;
-  font-weight: 700;
-  color: #fbfbfb;
-  font-family: "Libre Baskerville", serif;
-}
-
-.portfolio-cards {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  margin-top: 50px;
-  gap: 2.5vh;
-}
-
-.portfolio-card {
-  position: relative;
-  height: 30vw;
-  width: 30vw;
-  background-color: #3d3e42;
-  border-radius: 20px;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  gap: 2.5vh;
-  transition: all ease 0.5s;
-}
-
-.portfolio-card img {
-  position: relative;
-  height: 30vw;
-  width: 30vw;
-  object-fit: cover;
-}
-
-.portfolio-card .overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  gap: 2.5vh;
-  height: 30vw;
-  width: 30vw;
-  background-color: #34353ba2;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  opacity: 0;
-  transition: all ease 0.5s;
-}
-
-.portfolio-card .overlay h3 {
-  color: #fbfbfb;
-  font-size: 24px;
-}
-
-.portfolio-card .overlay p {
-  color: #fbfbfb;
-  font-size: 16px;
-  text-align: center;
-}
-
-.portfolio-card .overlay button {
-  height: 36px;
-  width: 108px;
-  background-color: #fec86a;
-  border: 1px solid #fec86a;
-  border-radius: 8px;
-  color: #34353b;
-  font-size: 12px;
-  transition: all ease 0.5s;
-  cursor: pointer;
-}
-
-.portfolio-card .overlay:hover {
-  opacity: 1;
-}
-
-.portfolio button {
-  margin-top: 50px;
-  height: 48px;
-  width: 144px;
-  background-color: #fec86a;
-  border: 1px solid #fec86a;
-  border-radius: 8px;
-  color: #34353b;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all ease 0.5s;
-}
-
-.portfolio button:hover {
-  background-color: #cc9e4e;
-}
-
-.experience {
-  display: flex;
-  flex-direction: column;
-  /* height: 100vh; */
-  width: 100vw;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-}
-
-.darker-div {
-  background-color: #070707;
-  width: 100vw;
-  height: 10vh;
-}
-
-.experience h1 {
-  position: absolute;
-  color: #fbfbfb;
-  font-size: 56px;
-  font-family: "Libre Baskerville", serif;
-  transform: translate(-50%, -50%);
-  top: 10%;
-  left: 15%;
-}
-
-.lighter-div {
-  background-color: #060606;
-  width: 100vw;
-  /* height: 90vh; */
-  padding: 10vh;
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-
-.lighter-div .exp {
-  height: 30vh;
-  width: 50vw;
-  position: relative;
-  margin-left: 20vh;
-}
-
-.exp h2 {
-  color: #fbfbfb;
-  font-size: 32px;
-  font-weight: 400;
-}
-
-.exp h2::before {
-  content: "";
-  height: 20px;
-  width: 20px;
-  color: #fec86a;
-  background-color: #fec86a;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 7.5%;
-  left: -5%;
-  border-radius: 50%;
-  box-shadow: 0px 0px 20px 5px #fec86a;
-}
-
-.exp-desc::before {
-  content: "";
-  height: 190px;
-  width: 2.5px;
-  background-color: #fbfbfb;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 55%;
-  left: -5%;
-}
-.exp-desc h3 {
-  color: #fbfbfb;
-  font-size: 20px;
-  font-weight: 400;
-  margin: 10px 0;
-}
-
-.exp-desc p {
-  color: #fbfbfb;
-  font-size: 16;
-  font-weight: 400;
-}
-
-/* Add this CSS for the footer */
-
-footer {
-  background-color: #0c0c0c;
-  color: #fbfbfb;
-  padding: 20px;
-  text-align: center;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-/* Style for the copyright text */
-footer p {
-  margin: 0;
-  font-size: 14px;
-}
-footer {
-  background-color: #0c0c0c;
-  color: #fbfbfb;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-.footer-section {
-  width: 45%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.footer-section1 img {
-  width: 70%;
-}
-.footer-section1 {
-  width: 45%;
-}
-.footer-section h2 {
-  font-size: 40px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #fbfbfb;
-  border-radius: 5px;
-  background-color: transparent;
-  color: #fbfbfb;
-}
-
-.contact-form button {
-  background-color: #fec86a;
-  color: #34353b;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.contact-form button:hover {
-  background-color: #cc9e4e;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-/* Style for the copyright text */
-footer p {
-  margin: 0;
-  font-size: 14px;
-}
-/* Book a slot CSS */
-.main-book {
-  padding: 100px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-}
-.main-book h1 {
-  font-size: 40px;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-.main-book p {
-  font-size: 20px;
-  color: #fec86a;
-  text-transform: capitalize;
-}
-.book-form {
-  width: 100%;
-  padding: 100px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.book-form-container {
-  width: 40%;
-  padding: 20px;
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.021);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(1.3px);
-  -webkit-backdrop-filter: blur(1.3px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.book-form-container h2{
-  color: white;
-  margin-bottom: 10px;
-  margin-top: 30px;
-}
-.book-form-container h2:first-child{
-  color: white;
-  margin-bottom: 10px;
-  margin-top: 0px;
-}
-.form-section {
-  margin-top: 20px;
-  border-radius: 5px;
-  width: 100%;
-}
-
-/* Input styling */
-.form-section label {
-  display: block;
-  margin-bottom: 5px;
-  color: white; /* Label color */
-}
-
-.form-section input,
-.form-section select {
-  width: 100%;
-  padding: 5px ;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  border-radius: 5px;
-  border:0;
-  background-color: #0c0c0c; /* Glass effect with minimal transparency */
-  color: white; /* Text color */
-  border-bottom: 1px solid #ffffff64;
-  outline: 0;
-}
-/* Style the dropdown options */
-.form-section select option {
-  color: rgb(255, 255, 255); /* Text color for options */
-}
-.form-section input:focus,.form-section select:focus{
-  padding: 8px 5px;
-  transition: all 0.4s;
-}
-/* Button styling */
-.form-section button {
-  background-color: #cc9e4e;
-  color: white;
-  padding: 10px 25px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 10px;
-}
-
-::-webkit-calendar-picker-indicator {
-  filter: invert(1);
-}
-
-/* Media Query Starts */
-@media only screen and (max-width: 768px) {
-  .logo {
-    width: auto;
-  }
-  .menu {
-    display: none;
-  }
-  #hamburger {
-    color: white;
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-  }
-  #close-menu {
-    color: white;
-    display: flex;
-    align-items: center;
-    font-size: 30px;
-    z-index: 9999;
-    display: none;
-  }
-  .mobile-menu {
-    display: none;
-    flex-direction: column;
-    background-color: #000000;
-    width: 100% !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    font-size: 20px;
-    padding: 20px;
-    gap: 30px;
-    justify-content: flex-start;
-    align-items: flex-start;
-    transition: left 0.3s ease;
-  }
-  .mobile-menu a {
-    color: white;
-    text-decoration: none;
-  }
-  .mobile-menu-container {
-    display: flex;
-    align-items: center;
-  }
-  /* Landing Section */
-  .landing {
-    height: auto;
-    padding: 50px 20px;
-  }
-  /* About Media Query */
-  .about {
-    padding: 50px 20px;
-  }
-  .about h1 {
-    font-size: 40px;
-  }
-  .about .description p {
-    font-size: 18px;
-  }
-  /* Portfolio */
-  .portfolio {
-    padding: 50px 20px;
-  }
-  .lighter-div .exp {
-    height: auto;
-    width: auto;
+    font-family: Arial, sans-serif;
     margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
   }
-  .footer-content {
-    flex-direction: column;
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
   }
-  .footer-section1 {
-    width: 100%;
+  
+  h1 {
+    text-align: center;
+    color: #333;
   }
-  .footer-section {
-    width: 100%;
+  
+  .back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .back-btn:hover {
+    color: #007bff;
+  }
+  
+  .back-btn i {
+    margin-right: 5px;
+  }
+  
+  .pricing-plans {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .plan {
+    background-color: #f4f4f4;
+    padding: 15px;
+    margin: 8px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .plan:hover {
+    transform: translateY(-5px);
+  }
+  
+  .price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  form {
+    padding: 20px;
+  }
+  
+  .form-group {
     margin-bottom: 20px;
+    transition: transform 0.3s ease;
   }
-  /* Book a slot */
-  .book-form-container{
+  .form-group:hover {
+    transform: translateY(-5px);
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="time"],
+  select {
     width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
   }
-  .fill-status{
-   flex-direction: column;
-   gap: 10px;
-  }
-  .fill-status .step-1, .fill-status .step-2, .fill-status .step-3{
-    width: 100%;
-  }
-  .fill-status .progress{
-    display: none;
-  }
+  input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="tel"]:hover,
+input[type="date"]:hover,
+input[type="time"]:hover,
+select:hover {
+  border-color: #9e9c9c;
 }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  input[type="date"]:focus,
+  input[type="time"]:focus,
+  select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  
+  .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease,  transform 0.2s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
 
-
-.btn-back {
-      background-color: #6c757d;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      color: #fff;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-    .btn-back:hover {
-      background-color: #5a6268;
-    }
-
-
-.main-book button{
-  height: 48px;
-  width: 144px;
-  margin-top: 2.5vh;
-  margin-left: 10vw;
-  background-color: transparent;
-  border: 2px solid #fec86a;
-  border-radius: 8px;
-  color: #fec86a;
-  font-size: 16px;
-  transition: all ease 0.5s;
-}
-
-.main-book button:hover {
-  background-color: #fec86a;
-  color: #34353b;
-}
+  @media  screen and (max-width :550px){
+    .pricing-plans {
+      display: flex;
+      margin-bottom: 20px;
+      flex-direction: column;
+  }
+  }
+  @media  screen and (max-width :610px){
+    .plan p {
+      font-size: 15px;
+  }  
+  }
