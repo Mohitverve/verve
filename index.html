@@ -50,7 +50,6 @@
                           <li><a href="book.html">Book Session</a></li>
                           <li><a href="#FAQ">FAQs</a></li>
                           <li><a href="#contact">Contact us</a></li>
-                       <li><a href="#"  class ="signout" id= "signoutbtn" >Sign out</a><li>
                          
                       </ul>
                   </div>
@@ -58,7 +57,7 @@
                     <input type="text" placeholder="All results...">
                   </div>
                   <div class="nav-actions">
-                      <a href=""  id= "signout" class="btn-signup" >Sign Out</a>
+                      <a href="" class="btn-signup" id= "signoutbutton">Sign out</a>
                   </div>
               </div>
           </nav>
@@ -215,40 +214,41 @@
     <div class="faq-row">
       <div class="faq-question">
         <div class="question-toggle">
-          What is Virtual Reality?
+          Why should I join this course and how will this be helpful?
           <span class="toggle-icon">&#x25BC;</span>
         </div>
         <div class="answer">
-          Virtual Reality (VR) is a computer-generated environment with scenes and objects that appear to be real, making the user feel they are immersed in their surroundings. This environment is perceived through a device known as a Virtual Reality headset or helmet
+          This course is designed to provide you with knowledge and skills in all subjects, which are highly relevant to the JEE exam pattern.
         </div>
       </div>
       <div class="faq-question">
         <div class="question-toggle">
-          How and when can i book sessions?
+          How will the classes be conducted? What will happen if I miss a class?
           <span class="toggle-icon">&#x25BC;</span>
         </div>
         <div class="answer">
-          As of now we have not launched our services in the market but we plan on launching by the end of this year and our services will be open.
+          All classes will be live at the scheduled time, and if you miss any class, you can access the recording anytime.
         </div>
       </div>
     </div>
     <div class="faq-row">
       <div class="faq-question">
         <div class="question-toggle">
-          Who can book these sessions?
+          Can the classes be downloaded?
           <span class="toggle-icon">&#x25BC;</span>
         </div>
         <div class="answer">
-        Schools, colleges and private institues can book our sessions while individuals can subscribe to our membership plans for our content library.
+          Yes, you can download videos of any courses you have enrolled in.<br><br>
+          The videos can be downloaded and watched offline in the PW app under the download section go to the Study Page & watch the downloaded video. These videos will be available until the expiry of Online Batches.
         </div>
       </div>
       <div class="faq-question">
         <div class="question-toggle">
-          Do we get VR headsets too?
+          What are the class days and timings?
           <span class="toggle-icon">&#x25BC;</span>
         </div>
         <div class="answer">
-         Our session includes VR headsets, Mobile devices, Content library and an onsite team to setup and help with the session.
+          Please check the lecture Planner inside the course to view the class schedule and timings.
         </div>
       </div>
     </div>
@@ -312,9 +312,9 @@
             let UserCreds = JSON.parse(localStorage.getItem("user-creds"));
             let UserInfo = JSON.parse(localStorage.getItem("user-info"));
 
-            let signoutbtn = document.getElementById('signoutbtn');
+            let signoutbutton = document.getElementById('signoutbutton');
 
-            let signoutbtn = () => {
+            let signout = () => {
                 localStorage.removeItem("user-creds");
                 localStorage.removeItem("user-info");
                 window.location.href = 'login.html'
