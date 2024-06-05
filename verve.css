@@ -123,7 +123,7 @@ nav {
   height: 40px;
 }
 .nav-links .signout{
-  display:none;
+  display: none;
 }
 .nav-links ul {
   display: flex;
@@ -942,7 +942,7 @@ a {
     font-size: 12px;
   }
   .nav-links .signout {
-    display: flex;
+    display: block;
   }
 }
 @media screen and (max-width: 1177px) {
