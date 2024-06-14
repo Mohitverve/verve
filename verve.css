@@ -647,10 +647,10 @@ div.video video{
 } 
 
 
-footer {
-    background-color: #222;
+ .footer {
+    background-color: white;
     padding: 20px;
-    color: #ccc;
+    color: white;
 }
 
 .footer-top {
@@ -660,6 +660,7 @@ footer {
 
 .footer-top p {
     font-size: 18px;
+    color: #000000;
 }
 
 .highlight {
@@ -688,40 +689,16 @@ footer {
 
 .link-column a {
     display: block;
-    color: #ccc;
+    color: #000000;
     text-decoration: none;
     margin-bottom: 10px;
     font-size: 14px;
 }
 
 .link-column a:hover {
-    color: #fff;
+    color: #a27bfe;
 }
 
-.footer-language {
-    display: flex;
-    align-items: center;
-}
-
-.language-button {
-    background: none;
-    border: 1px solid #444;
-    color: #ccc;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-
-.language-button:hover {
-    border-color: #666;
-    color: #fff;
-}
-
-.language-icon {
-    margin-right: 10px;
-}
 
 .footer-logo {
     text-align: center;
@@ -737,7 +714,7 @@ footer {
 .footer-logo p {
     margin: 10px 0 0;
     font-size: 14px;
-    color: #888;
+    color: #070707;
 }
 /*---------------------MEDIA QUERIES--------------------*/
 /*-----------------For small devices---------------*/
