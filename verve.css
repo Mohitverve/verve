@@ -647,123 +647,75 @@ div.video video{
 } 
 
 
-
-
-section {
-  position: fixed;
-  left: 0;
-  bottom: 12px;
-  width: 100%;
-  background: #fdfdfd;
-  padding-top: 60px;
+ footer {
+    background-color: white;
+    padding: 20px;
+    color: white;
 }
 
-footer {
-  display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  margin: 0 30px;
-}
-
-@media (width < 620px) {
-  footer {
-    flex-direction: column;
-  }
-
-  footer.bottom {
-    gap: 16px;
-    flex-direction: column-reverse;
-  }
-}
-
-footer > img {
-  margin-top: 5px;
-  max-width: 100px;
-}
-
-@media (width >= 620px) {
-  footer {
-    margin: 0 auto;
-    max-width: 600px;
-    padding: 0;
-  }
-}
-
-footer {
-  color: #0e0e0e;
-}
-
-footer.top {
-  border-bottom: 2px solid #0a0a0a;
-  padding-bottom: 20px;
-}
-
-footer.bottom {
-  padding: 20px 0;
-  justify-content: space-between;
-}
-
-footer.top .links {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-}
-
-.links > div {
-  display: grid;
-  gap: 10px;
-  margin-bottom: 30px;
-}
-
-footer h2 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 400;
-  color: #070707;
-}
-
-.legal {
-  font-size: 12px;
-}
-
-.legal > a {
-  margin: 0 4px;
-}
-
-.legal > span {
-  margin-right: 10px;
-}
-
-footer.bottom .links {
-  display: flex;
-  gap: 18px;
-}
-
-footer.bottom .links > a {
-  font-size: 24px;
-}
-
-@media (width < 420px) {
-  footer {
+.footer-top {
     text-align: center;
-    align-items: center;
-  }
-
-  footer.top .links {
-    grid-template-columns: 1fr;
-  }
-
-  footer.bottom {
-    align-items: center;
-  }
-
-  .legal > span {
-    display: block;
-    margin-right: 0;
-    margin-bottom: 2px;
-  }
+    margin-bottom: 20px;
 }
 
+.footer-top p {
+    font-size: 18px;
+    color: #000000;
+}
+
+.highlight {
+    color: #a27bfe;
+}
+
+.footer-logos img {
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-top: 1px solid #333;
+}
+
+.footer-links {
+    display: flex;
+}
+
+.link-column {
+    margin-right: 40px;
+}
+
+.link-column a {
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.link-column a:hover {
+    color: #a27bfe;
+}
+
+
+.footer-logo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-logo img {
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+.footer-logo p {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: #070707;
+}
 /*---------------------MEDIA QUERIES--------------------*/
 /*-----------------For small devices---------------*/
 
