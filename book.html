@@ -1,391 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VerveIN- Explore</title>
-    <!-- Import Materialize CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <style>
-        body {
-            background-color: white;
-            color: black;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-
-        .header-logo {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .header-logo img {
-            max-width: 150px;
-        }
-
-        .header-text {
-            text-align: center;
-            font-size: 18px;
-            color: gray;
-        }
-
-        .button {
-            margin-top: 30px;
-        }
-
-        .neomorphism-buttons {
-            background: #f9f8f8;
-            border-radius: 12px;
-            box-shadow: 7px 7px 15px #b3b3b3, -7px -7px 15px #ffffff;
-            padding: 15px 25px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 20px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: #000000;
-        }
-
-        .neomorphism-buttons:active {
-            box-shadow: inset 7px 7px 15px #b3b3b3, inset -7px -7px 15px #ffffff;
-        }
-
-        .container {
-            margin-top: 40px;
-        }
-
-        .blog-post {
-            margin: 40px 20px;
-        }
-
-        .blog-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .blog-date {
-            color: gray;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .blog-content {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .flow-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px;
-            text-align: center;
-            background-color: #fcfcfc;
-            margin-top: 10px;
-            margin-bottom: 50px;
-        }
-
-        .flow-steps {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-
-        .flow-step {
-            max-width: 300px;
-            padding: 20px;
-            background-color: #f4f4f4;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .flow-step:hover {
-            transform: translateY(-10px);
-            background-color: #9e9c9c;
-        }
-
-        .flow-step img {
-            max-width: 100px;
-            margin-bottom: 20px;
-        }
-
-        .step-icon {
-            font-size: 48px;
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-
-        .step-title {
-            font-size: 20px;
-            color: #333;
-        }
-
-        @media (max-width: 600px) {
-            .flow-steps {
-                flex-direction: column;
-            }
-        }
-
-        footer {
-            background-color: white;
-            padding: 20px;
-            color: white;
-        }
-
-        .footer-top {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .footer-top p {
-            font-size: 18px;
-            color: #000000;
-        }
-
-        .highlight {
-            color: #a27bfe;
-        }
-
-        .footer-logos img {
-            margin: 0 10px;
-            vertical-align: middle;
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 0;
-            border-top: 1px solid #333;
-        }
-
-        .footer-links {
-            display: flex;
-        }
-
-        .link-column {
-            margin-right: 40px;
-        }
-
-        .link-column a {
-            display: block;
-            color: #000000;
-            text-decoration: none;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .link-column a:hover {
-            color: #a27bfe;
-        }
-
-        .footer-logo {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .footer-logo img {
-            width: 100px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .footer-logo p {
-            margin: 10px 0 0;
-            font-size: 14px;
-            color: #070707;
-        }
-
-        @media screen and (max-width: 640px) {
-            .footer-top p {
-                font-size: 15px;
-            }
-        }
-
-        /* Initial state for GSAP animation */
-        .hidden {
-            autoAlpha: 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VerveIN - Book a Slot</title>
+  <link rel="icon" href="vervefav.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="book.css">
 </head>
-
 <body>
-
-    <!-- Header Section -->
-    <div class="header-logo">
-        <img src="vervein.png" alt="Blogger Logo">
-        <div class="header-text">A new Revolution for Education</div>
-        <!-- Buttons -->
-        <div class="button">
-            <a href="index.html" class="neomorphism-buttons">Home</a>
-            <a href="intrest.html" class="neomorphism-buttons">Show Interest</a>
-        </div>
+  <div class="container">
+    <a href="index.html" class="back-btn">
+      <i class="fas fa-arrow-left"></i>
+      <span>Go Back</span>
+    </a>
+    <h1>Book a Slot with us </h1>
+    <div class="pricing-plans">
+      <div class="plan">
+        <h2>Per Session</h2>
+        <p class="price">₹3,500</p>
+        <p>Book individual sessions</p>
+      </div>
+      <div class="plan" data-plan="monthly">
+        <h2>Half Yearly Subscription</h2>
+        <p class="price">₹31,000</p>
+        <p>10 sessions in the duration</p>
+      </div>
+      <div class="plan" data-plan="yearly">
+        <h2>Yearly Subscription</h2>
+        <p class="price">₹61,000</p>
+        <p>20 sessions per year</p>
+      </div>
     </div>
+    
+    <form id="booking-form">
+      <div class="form-group">
+        <label for="organization-name">Organization Name</label>
+        <input type="text" id="organization-name" name="organization-name" required>
+      </div>
+      <div class="form-group">
+        <label for="organization-email"> Email</label>
+        <input type="email" id="organization-email" name="organization-email" required>
+      </div>
+      <div class="form-group">
+        <label for="organization-contact"> Contact</label>
+        <input type="tel" id="organization-contact" name="organization-contact" required>
+      </div>
+      <div class="form-group">
+        <label for="slot-date">Slot Date</label>
+        <input type="date" id="slot-date" name="slot-date" required>
+      </div>
+      <div class="form-group">
+        <label for="slot-time">Slot Time</label>
+        <input type="time" id="slot-time" name="slot-time" required>
+      </div>
+      <div class="form-group">
+        <label for="topic">Topic/Subject</label>
+        <select id="topic" name="topic" required>
+          <option value="">Select Topic/Subject</option>
+          <option value="science">Science</option>
+          <option value="math">Mathematics</option>
+          <option value="history">History</option>
+          <option value="geography">Geography</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="payment-method">Payment Method</label>
+        <select id="payment-method" name="payment-method" required>
+          <option value="">Select Payment Method</option>
+          <option value="credit-card">Credit Card</option>
+          <option value="net-banking">Net Banking</option>
+          <option value="upi">UPI</option>
+        </select>
+      </div>
+      <button type="submit" class="btn">Book Slot</button>
+    </form>
+  </div>
 
-    <!-- Blog Post Section -->
-    <div class="container">
-        <div class="blog-post hidden">
-            <div class="blog-title">What is VerveIN?</div>
-            <div class="blog-date">VerveIN</div>
-            <div class="blog-content">
-                <p>VerveIN (innovations) is an educational technology company dedicated to transforming traditional
-                    learning through immersive virtual reality (VR) experiences. By offering a comprehensive suite of VR
-                    solutions tailored for K-12 schools, colleges, and universities, VerveIN bridges the gap between
-                    conventional education and advanced technology, making cutting-edge educational experiences
-                    accessible to all students.</p>
-            </div>
-        </div>
-    </div>
+  <script>
+    const bookingForm = document.getElementById('booking-form');
+    const paymentMethodSelect = document.getElementById('payment-method');
 
-    <div class="container">
-        <div class="blog-post hidden">
-            <div class="blog-title">The Problem We Solve</div>
-            <div class="blog-date">VerveIN</div>
-            <div class="blog-content">
-                <p>What if educators wanted to improve the way they could teach students? And their new big idea is
-                    Virtual
-                    Reality: an innovative approach to learning and other aspects of life. But an educator would find
-                    numerous
-                    challenges to overcome, a lack of content library, high costs of having their own content
-                    development team,
-                    and a high skill set for developing content and setting up the tech. Implementing VR in education is
-                    a lot more
-                    challenging, and just think, how much trouble they would have to go through just to set up their new
-                    way of
-                    teaching, the time they could spend on improving their lessons. But why would an educator even feel
-                    the need
-                    to improve the current way of teaching? Lack of attention span, the depressed mindset of students
-                    regarding
-                    learning, and the rise of digital solutions which are proved to be better than traditional learning.
-                    All these
-                    problems serve as the main motivation behind VerveIN.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="blog-post hidden">
-            <div class="blog-title">The Solution We Provide</div>
-            <div class="blog-date">VerveIN</div>
-            <div class="blog-content">
-                <p>VerveIN provides a platform where educators can find everything they need in one place, from setting
-                    up VR tech
-                    in their classroom, to VR headsets, and a content library that would make learning so much better
-                    for their students,
-                    and all that at a very reasonable price. We strive to make learning better and more effective by
-                    using Virtual reality.
-                    Here is how we tackle each problem:
-                    We partner with device partners for mobile phones and buy all the VR headsets, we have our own
-                    content
-                    development team to develop the VR content according to educators' needs, our onsite team then
-                    delivers the
-                    service to the school/college at their designated time.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="blog-post hidden">
-            <div class="blog-title">Our Services</div>
-            <div class="blog-date">VerveIN</div>
-            <div class="flow-container">
-                <div class="flow-steps">
-                    <div class="flow-step hidden">
-                        <div class="step-icon">
-                            <i class="fas fa-clipboard-list"></i>
-                        </div>
-                        <img loading="lazy" src="ser1.png" alt="VR Simulation Session Booking">
-                        <h3 class="step-title">VR Simulation Session Booking</h3>
-                    </div>
-                    <div class="flow-step hidden">
-                        <div class="step-icon">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <img loading="lazy" src="ser2.png" alt="End to-End VR Experience Delivery">
-                        <h3 class="step-title">End to-End VR Experience Delivery</h3>
-                    </div>
-                    <div class="flow-step hidden">
-                        <div class="step-icon">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <img loading="lazy" src="ser3.png" alt="VR Content Licensing">
-                        <h3 class="step-title">VR Content Licensing</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="blog-post hidden">
-            <div class="blog-title">How does Our Services work?</div>
-            <div class="blog-date">VerveIN</div>
-            <div class="blog-content">
-                Book your session on our main page with the book session menu, provide date time and topic with other
-                info.
-                We recieve and confirm your session and assign a delivery partner. The delivery team delivers the
-                content library with VR headsets and mobile devices.
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-top">
-            <p>Revolutionise Education with <a href="index.html"><span class="highlight">VerveIN</span> </a>
-                to reshape our traditional learning methods</p>
-            
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-links">
-                <div class="link-column">
-                  
-                    <a href="#">Be a delivery partner</a>
-                    
-                    <a href="index.html#about-us">About us</a>
-                    <a href="index.html#contact">Contact us</a>
-                    <a href="book.html">Book sessions</a>
-                </div>
-                <div class="link-column">
-                    <a href="https://www.instagram.com/verveinnovations?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Intsgram</a>
-                    <a href="https://www.linkedin.com/company/vervein/?viewAsMember=true">Linkedn</a>
-                    <a href="https://x.com/verveinnovate">Twitter</a>
-                    <a href="#">Youtube</a>
-                   
-                </div>
-               
-            
-        </div>
-        <div class="footer-logo">
-            <img loading="lazy" src="vervein.png" alt="vervein">
-            <p>© 2024 VerveIN, Inc.</p>
-        </div>
-    </footer>
-
-    <!-- Import jQuery and Materialize JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"
-      integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"
-      integrity="sha512-A64Nik4Ql7/W/PJk2RNOmVyC/Chobn5TY08CiKEX50Sdw+33WTOpPJ/63bfWPl0hxiRv1trPs5prKO8CpA7VNQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script type="text/javascript" src="blog.js"></script>
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (paymentMethodSelect.value !== '') {
+        window.location.href = 'payment.html';
+      } else {
+        alert('Please select a payment method.');
+      }
+    });
+  </script>
 </body>
-
 </html>
