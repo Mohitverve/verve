@@ -8,16 +8,50 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <style>
-  body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+/* Global Styles */
+:root {
+  --main-color: black;
+  --alt-color: white;
+  --ascent-color: #8bc3ff;
+  --first-color: hsl(var(--hue-color), 69%, 61%);
+  --first-color-alt: hsl(var(--hue-color), 57%, 53%);
+
+  --main-heading: 60px;
+  --sub-heading: 20px;
+  --secondary-heading: 50px;
+  --paragraph: 16px;
+
+  --main-font: "DM Sans", sans-serif;
+}
+
+body {
   background: linear-gradient(to right, #ffffff, #292a2b);
   color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--main-font);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
   margin: 0;
+}
+
+a {
+  color: var(--main-color);
+  font-size: var(--paragraph);
+  font-family: var(--main-font);
+  text-decoration: none;
 }
 
 .header-logo {
@@ -120,6 +154,66 @@ button:hover {
   gap: 10px;
 }
 
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+  .form-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .neomorphism-buttons {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .header-logo img {
+    max-width: 100px;
+  }
+
+  .header-text {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form-container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .neomorphism-buttons {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+
+  button {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .header-logo img {
+    max-width: 80px;
+  }
+
+  .header-text {
+    font-size: 14px;
+  }
+}
+
+
 </style>
 <body>
   <!-- Header Section -->
@@ -176,12 +270,12 @@ button:hover {
 
     const firebaseConfig = {
       apiKey: "AIzaSyAttOBNym78OvLC-sB0QTSnzER5B13YgTg",
-      authDomain: "verve-1883f.firebaseapp.com",
-      databaseURL: "https://verve-1883f-default-rtdb.firebaseio.com",
-      projectId: "verve-1883f",
-      storageBucket: "verve-1883f.appspot.com",
-      messagingSenderId: "88628857972",
-      appId: "1:88628857972:web:8319d4700a9aa0ec9f5521"
+          authDomain: "verve-1883f.firebaseapp.com",
+          databaseURL: "https://verve-1883f-default-rtdb.firebaseio.com",
+          projectId: "verve-1883f",
+          storageBucket: "verve-1883f.appspot.com",
+          messagingSenderId: "88628857972",
+          appId: "1:88628857972:web:8319d4700a9aa0ec9f5521"
     };
 
     // Initialize Firebase
