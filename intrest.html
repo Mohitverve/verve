@@ -1,348 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VerveIN- Show Intrest</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Multi-Step Form</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+        body {
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            background-color: #fafafa;
+            border-bottom: 1px solid #ffffff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header img {
+            height: 80px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .nav-links a:hover {
+            color: blue;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-indicators {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .step-indicator {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .step-indicator::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background: #ddd;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        .step-indicator:last-child::after {
+            content: none;
+        }
+
+        .step-number {
+            background: #4c6daf;
+            border: 2px solid #4c6daf;
+            color: #ffffff;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+
+        .step-active .step-number {
+            background: blue;
+            color: #fff;
+        }
+
+        .step-content {
+            display: none;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-buttons button {
+            padding: 10px 20px;
+            border: none;
+            background: blue;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .form-buttons button[disabled] {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 600px) {
+            .step-indicators {
+                flex-direction: column;
+            }
+
+            .step-indicator::after {
+                width: 2px;
+                height: 100%;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: white;
+            padding: 20px;
+            color: black;
+        }
+
+        .footer-top {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-top p {
+            font-size: 18px;
+        }
+
+        .highlight {
+            color: #a27bfe;
+        }
+
+        .footer-logos img {
+            margin: 0 10px;
+            vertical-align: middle;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-top: 1px solid #333;
+        }
+
+        .footer-links {
+            display: flex;
+        }
+
+        .link-column {
+            margin-right: 40px;
+        }
+
+        .link-column a {
+            display: block;
+            color: black;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .link-column a:hover {
+            color: #a27bfe;
+        }
+
+        .footer-logo {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer-logo img {
+            width: 100px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .footer-logo p {
+            margin: 10px 0 0;
+            font-size: 14px;
+        }
+
+        @media screen and (max-width: 640px) {
+            .footer-top p {
+                font-size: 15px;
+            }
+        }
+    </style>
 </head>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  width: 100%;
-  height: 100%;
-}
-
-/* Global Styles */
-:root {
-  --main-color: black;
-  --alt-color: white;
-  --ascent-color: #8bc3ff;
-  --first-color: hsl(var(--hue-color), 69%, 61%);
-  --first-color-alt: hsl(var(--hue-color), 57%, 53%);
-
-  --main-heading: 60px;
-  --sub-heading: 20px;
-  --secondary-heading: 50px;
-  --paragraph: 16px;
-
-  --main-font: "DM Sans", sans-serif;
-}
-
-body {
-  background: linear-gradient(to right, #ffffff, #fcfcfc);
-  color: white;
-  font-family: var(--main-font);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 500px;
-  margin: 0;
-}
-
-a {
-  color: var(--main-color);
-  font-size: var(--paragraph);
-  font-family: var(--main-font);
-  text-decoration: none;
-}
-
-.header-logo {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.header-logo img {
-  max-width: 150px;
-}
-
-.header-text {
-  font-size: 18px;
-  color: #000000;
-  margin-bottom: 20px;
-}
-
-.button {
-  margin-top: 20px;
-}
-
-.neomorphism-buttons {
-  background: #f0f0f3;
-  border-radius: 12px;
-  box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.2), -7px -7px 15px rgba(255, 255, 255, 0.7);
-  padding: 15px 25px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  margin: 10px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  color: #333;
-  
-}
-
-.neomorphism-buttons:hover {
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.7);
-}
-
-.neomorphism-buttons:active {
-  box-shadow: inset 7px 7px 15px rgba(0, 0, 0, 0.2), inset -7px -7px 15px rgba(255, 255, 255, 0.7);
-}
-
-.form-container {
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 100%;
-  margin-top: 50px;
-}
-
-.form-screen {
-  display: none;
-}
-
-.form-screen.active {
-  display: block;
-}
-
-h2 {
-  color: #333;
-}
-
-label {
-  display: block;
-  margin-bottom: 10px;
-  color: #666;
-}
-
-input, select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-}
-
-button {
-  width: calc(50% - 5px);
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-.button-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-/* Media Queries for Responsiveness */
-@media screen and (max-width: 768px) {
-  .form-container {
-    width: 90%;
-    padding: 20px;
-  }
-
-  .neomorphism-buttons {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-
-  button {
-    padding: 8px;
-    font-size: 14px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  .header-logo img {
-    max-width: 100px;
-  }
-
-  .header-text {
-    font-size: 16px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .form-container {
-    width: 100%;
-    padding: 15px;
-  }
-
-  .neomorphism-buttons {
-    padding: 8px 15px;
-    font-size: 12px;
-  }
-
-  button {
-    padding: 6px;
-    font-size: 12px;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
-
-  .header-logo img {
-    max-width: 80px;
-  }
-
-  .header-text {
-    font-size: 14px;
-  }
-}
-
-
-</style>
 <body>
-  <!-- Header Section -->
-  <div class="header-logo">
-    <img src="vervein.png" alt="Blogger Logo">
-    <div class="header-text">A new Revolution for Education</div>
-    <!-- Buttons -->
-    <div class="button">
-      <a href="index.html" class="neomorphism-buttons">Home</a>
-      <a href="blog.html" class="neomorphism-buttons">Explore more</a>
+    <header class="header">
+        <img src="vervein.png" alt="Logo">
+       
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+    <div class="container">
+        <div class="step-indicators">
+            <div class="step-indicator step-active">
+                <div class="step-number">1</div>
+                <div class="step-label">Personal Details</div>
+            </div>
+            <div class="step-indicator">
+                <div class="step-number">2</div>
+                <div class="step-label">Your Interest Level</div>
+            </div>
+            <div class="step-indicator">
+                <div class="step-number">3</div>
+                <div class="step-label">Give some suggestions</div>
+            </div>
+        </div>
+        <form id="multi-step-form">
+            <div class="step-content active">
+                <h3>Personal Details</h3>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" id="next1">Next</button>
+                </div>
+            </div>
+            <div class="step-content">
+                <h3>Your Interest Level</h3>
+                <div class="form-group">
+                    <label for="interest">Interest Level</label>
+                    <select id="interest" name="interest" required>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" id="prev2">Previous</button>
+                    <button type="button" id="next2">Next</button>
+                </div>
+            </div>
+            <div class="step-content">
+                <h3>Give Some Suggestions</h3>
+                <div class="form-group">
+                    <label for="comments">Comments</label>
+                    <textarea id="comments" name="comments" rows="4" required></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" id="prev3">Previous</button>
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
     </div>
-  </div>
-
-  <div class="form-container">
-    <form id="multiScreenForm">
-      <div class="form-screen" id="screen1">
-        <h2>Step 1</h2>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <div class="button-container">
-          <button type="button" class="next-button">Next</button>
+    <footer>
+        <div class="footer-top">
+            <p>Revolutionize Education with <a href="index.html"><span class="highlight">VerveIN</span></a> to reshape our traditional learning methods</p>
         </div>
-      </div>
-      <div class="form-screen" id="screen2">
-        <h2>Step 2</h2>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <div class="button-container">
-          <button type="button" class="prev-button">Previous</button>
-          <button type="button" class="next-button">Next</button>
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <div class="link-column">
+                    <a href="#">Be a delivery partner</a>
+                    <a href="index.html#about-us">About us</a>
+                    <a href="index.html#contact">Contact us</a>
+                    <a href="book.html">Book sessions</a>
+                </div>
+                <div class="link-column">
+                    <a href="https://www.instagram.com/verveinnovations?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="fa-brands fa-instagram"></a>
+                    <a href="https://www.linkedin.com/company/vervein/?viewAsMember=true" target="_blank" class="fa-brands fa-linkedin"></a>
+                    <a href="https://x.com/verveinnovate" target="_blank" class="fa-brands fa-twitter"></a>
+                    <a class="fa-brands fa-youtube"></a>
+                </div>
+            </div>
+            <div class="footer-logo">
+                <img loading="lazy" src="vervein.png" alt="vervein">
+                <p>© 2024 VerveIN, Inc.</p>
+            </div>
         </div>
-      </div>
-      <div class="form-screen" id="screen3">
-        <h2>Step 3</h2>
-        <label for="interest">Interest Level:</label>
-        <select id="interest" name="interest" required>
-          <option value="" disabled selected>Select your interest level</option>
-          <option value="Low">Low</option>
-          <option value="Medium">Medium</option>
-          <option value="High">High</option>
-        </select>
-        <div class="button-container">
-          <button type="button" class="prev-button">Previous</button>
-          <button type="submit">Submit</button>
-        </div>
-      </div>
-    </form>
-  </div>
+    </footer>
 
-  <script src="script.js"></script>
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyAttOBNym78OvLC-sB0QTSnzER5B13YgTg",
-          authDomain: "verve-1883f.firebaseapp.com",
-          databaseURL: "https://verve-1883f-default-rtdb.firebaseio.com",
-          projectId: "verve-1883f",
-          storageBucket: "verve-1883f.appspot.com",
-          messagingSenderId: "88628857972",
-          appId: "1:88628857972:web:8319d4700a9aa0ec9f5521"
-    };
+        const firebaseConfig = {
+            apiKey: "AIzaSyAttOBNym78OvLC-sB0QTSnzER5B13YgTg",
+            authDomain: "verve-1883f.firebaseapp.com",
+            databaseURL: "https://verve-1883f-default-rtdb.firebaseio.com",
+            projectId: "verve-1883f",
+            storageBucket: "verve-1883f",
+            messagingSenderId: "88628857972",
+            appId: "1:88628857972:web:8319d4700a9aa0ec9f5521"
+        };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
-    document.getElementById("multiScreenForm").addEventListener("submit", async function (event) {
-      event.preventDefault();
+        document.getElementById("multi-step-form").addEventListener("submit", async function (event) {
+            event.preventDefault();
 
-      var name = document.getElementById("name").value;
-      var email = document.getElementById("email").value;
-      var interest = document.getElementById("interest").value;
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var interest = document.getElementById("interest").value;
+            var comments = document.getElementById("comments").value;
 
-      try {
-        const docRef = await addDoc(collection(db, "interests"), {
-          name: name,
-          email: email,
-          interest: interest
+            try {
+                const docRef = await addDoc(collection(db, "interests"), {
+                    name: name,
+                    email: email,
+                    interest: interest,
+                    comments: comments,
+                });
+
+                console.log("Document written with ID: ", docRef.id);
+                document.getElementById("multi-step-form").reset();
+                alert("Thank you for your submission!");
+            } catch (error) {
+                console.error("Error adding document: ", error);
+                alert("An error occurred. Please try again later.");
+            }
         });
 
-        console.log("Document written with ID: ", docRef.id);
-        document.getElementById("multiScreenForm").reset();
-        alert("Thank you for your submission!");
-      } catch (error) {
-        console.error("Error adding document: ", error);
-        alert("An error occurred. Please try again later.");
-      }
-    });
-  </script>
-<script>
+        const next1 = document.getElementById('next1');
+        const next2 = document.getElementById('next2');
+        const prev2 = document.getElementById('prev2');
+        const prev3 = document.getElementById('prev3');
 
-document.addEventListener('DOMContentLoaded', function() {
-  const screens = document.querySelectorAll('.form-screen');
-  const nextButtons = document.querySelectorAll('.next-button');
-  const prevButtons = document.querySelectorAll('.prev-button');
-  let currentScreen = 0;
+        next1.addEventListener('click', function () {
+            document.querySelector('.step-indicator:nth-child(1)').classList.remove('step-active');
+            document.querySelector('.step-indicator:nth-child(2)').classList.add('step-active');
+            document.querySelector('.step-content:nth-child(1)').classList.remove('active');
+            document.querySelector('.step-content:nth-child(2)').classList.add('active');
+        });
 
-  function showScreen(index) {
-    screens.forEach((screen, i) => {
-      screen.classList.toggle('active', i === index);
-    });
-  }
+        next2.addEventListener('click', function () {
+            document.querySelector('.step-indicator:nth-child(2)').classList.remove('step-active');
+            document.querySelector('.step-indicator:nth-child(3)').classList.add('step-active');
+            document.querySelector('.step-content:nth-child(2)').classList.remove('active');
+            document.querySelector('.step-content:nth-child(3)').classList.add('active');
+        });
 
-  nextButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      if (currentScreen < screens.length - 1) {
-        currentScreen++;
-        showScreen(currentScreen);
-      }
-    });
-  });
+        prev2.addEventListener('click', function () {
+            document.querySelector('.step-indicator:nth-child(2)').classList.remove('step-active');
+            document.querySelector('.step-indicator:nth-child(1)').classList.add('step-active');
+            document.querySelector('.step-content:nth-child(2)').classList.remove('active');
+            document.querySelector('.step-content:nth-child(1)').classList.add('active');
+        });
 
-  prevButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      if (currentScreen > 0) {
-        currentScreen--;
-        showScreen(currentScreen);
-      }
-    });
-  });
-
-  showScreen(currentScreen);
-});
-
-</script>
-  
+        prev3.addEventListener('click', function () {
+            document.querySelector('.step-indicator:nth-child(3)').classList.remove('step-active');
+            document.querySelector('.step-indicator:nth-child(2)').classList.add('step-active');
+            document.querySelector('.step-content:nth-child(3)').classList.remove('active');
+            document.querySelector('.step-content:nth-child(2)').classList.add('active');
+        });
+    </script>
 </body>
-
 </html>
