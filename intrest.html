@@ -61,6 +61,7 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
+            font-size:15px;
         }
 
         .step-indicator {
@@ -128,20 +129,6 @@
         .form-buttons button[disabled] {
             background: #ccc;
             cursor: not-allowed;
-        }
-
-        @media (max-width: 600px) {
-            .step-indicators {
-                flex-direction: column;
-            }
-
-            .step-indicator::after {
-                width: 2px;
-                height: 100%;
-                top: 50%;
-                left: 0;
-                transform: translateY(-50%);
-            }
         }
 
         .form-group {
@@ -213,7 +200,7 @@
 
         .footer-logo {
             text-align: center;
-            margin-top: 20px;
+            /* margin-top: 20px; */
         }
 
         .footer-logo img {
@@ -226,7 +213,35 @@
             margin: 10px 0 0;
             font-size: 14px;
         }
-
+        @media (max-width: 700px){
+            .container{
+                margin: 20px 60px;
+            }
+        }
+        @media (max-width: 610px){
+            .step-indicator::after {
+                width: 2px;
+                height: 100%;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+            }
+            #multi-step-form{
+                font-size:12px;
+            }
+            .step-indicators{
+                font-size:10px;
+            }
+            .link-column a{
+                font-size:12px;
+            }
+            .footer-logo img{
+                width:75px;
+            }
+            .footer-logo p{
+                font-size:12px;
+            }
+        }
         @media screen and (max-width: 640px) {
             .footer-top p {
                 font-size: 15px;
@@ -236,7 +251,7 @@
 </head>
 <body>
     <header class="header">
-        <img src="vervein.png" alt="Logo">
+        <img src="logo3.jpg" alt="Logo">
        
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -322,7 +337,7 @@
                 </div>
             </div>
             <div class="footer-logo">
-                <img loading="lazy" src="vervein.png" alt="vervein">
+                <img loading="lazy" src="logo3.jpg" alt="vervein">
                 <p>© 2024 VerveIN, Inc.</p>
             </div>
         </div>
