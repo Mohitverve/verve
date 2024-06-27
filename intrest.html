@@ -146,109 +146,123 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
+        .new {
+  position: relative ;
+  left: 0;
+  bottom: 12px;
+  width: 100%;
+  background: #ffffff;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+}
 
-        footer {
-            background-color: white;
-            padding: 20px;
-            color: black;
-            padding-bottom: 0px;
-        }
+footer {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 0 30px;
+}
 
-        .footer-top {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+@media (width < 620px) {
+  footer {
+    flex-direction: column;
+  }
 
-        .footer-top p {
-            font-size: 18px;
-        }
+  footer.bottom {
+    gap: 16px;
+    flex-direction: column-reverse;
+  }
+}
 
-        .highlight {
-            color: #a27bfe;
-        }
+footer > img {
+  margin-top: 10px;
+  max-width: 100px;
+}
 
-        .footer-logos img {
-            margin: 0 10px;
-            vertical-align: middle;
-        }
+@media (width >= 620px) {
+  footer {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 0;
+  }
+}
 
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 0;
-            border-top: 1px solid #333;
-        }
+footer {
+  color: #000000;
+}
 
-        .footer-links {
-            display: flex;
-        }
+footer.top {
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 20px;
+}
 
-        .link-column {
-            margin-right: 40px;
-        }
+footer.bottom {
+  padding: 20px 0;
+  justify-content: space-between;
+}
 
-        .link-column a {
-            display: block;
-            color: black;
-            text-decoration: none;
-            margin-bottom: 10px;
-            font-size: 15px;
-        }
+footer.top .links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
 
-        .link-column a:hover {
-            color: #a27bfe;
-        }
+.links > div {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 30px;
+}
 
-        .footer-logo {
-            text-align: center;
-            /* margin-top: 20px; */
-        }
+footer h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #0b2682;
+}
 
-        .footer-logo img {
-            width: 100px;
-            display: block;
-            margin: 0 auto;
-        }
+.legal {
+  font-size: 12px;
+}
 
-        .footer-logo p {
-            margin: 10px 0 0;
-            font-size: 14px;
-        }
+.legal > a {
+  margin: 0 4px;
+}
 
-        @media (max-width: 700px){
-            .container{
-                margin: 20px 60px;
-            }
-        }
-        @media (max-width: 610px){
-            .step-indicator::after {
-                width: 2px;
-                height: 100%;
-                top: 50%;
-                left: 0;
-                transform: translateY(-50%);
-            }
-            #multi-step-form{
-                font-size:12px;
-            }
-            .step-indicators{
-                font-size:10px;
-            }
-            .link-column a{
-                font-size:12px;
-            }
-            .footer-logo img{
-                width:75px;
-            }
-            .footer-logo p{
-                font-size:12px;
-            }
-        }
-        @media screen and (max-width: 640px) {
-            .footer-top p {
-                font-size: 15px;
-            }
-        }
+.legal > span {
+  margin-right: 10px;
+}
+
+footer.bottom .links {
+  display: flex;
+  gap: 18px;
+}
+
+footer.bottom .links > a {
+  font-size: 24px;
+  color: #000000;
+}
+
+@media (width < 420px) {
+  footer {
+    text-align: center;
+    align-items: center;
+  }
+
+  footer.top .links {
+    grid-template-columns: 1fr;
+  }
+
+  footer.bottom {
+    align-items: center;
+  }
+
+  .legal > span {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 2px;
+  }
+}
     </style>
 </head>
 <body>
@@ -319,31 +333,36 @@
             </div>
         </form>
     </div>
-    <footer>
-        <div class="footer-top">
-            <p>Revolutionize Education with <a href="index.html"><span class="highlight">VerveIN</span></a> to reshape our traditional learning methods</p>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-links">
-                <div class="link-column">
-                    <a href="#">Be a delivery partner</a>
-                    <a href="index.html#about-us">About us</a>
-                    <a href="index.html#contact">Contact us</a>
-                    <a href="book.html">Book sessions</a>
-                </div>
-                <div class="link-column">
-                    <a href="https://www.instagram.com/verveinnovations?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="fa-brands fa-instagram"></a>
-                    <a href="https://www.linkedin.com/company/vervein/?viewAsMember=true" target="_blank" class="fa-brands fa-linkedin"></a>
-                    <a href="https://x.com/verveinnovate" target="_blank" class="fa-brands fa-twitter"></a>
-                    <a class="fa-brands fa-youtube"></a>
-                </div>
+   
+     <!-- Footer Section -->
+   <section class="new">
+    <footer class="top">
+        <img src="vervein.png">
+        <div class="links">
+            <div>
+                <h2 style="font-weight: bold;">Explore Platform</h2>
+                <a style="color: #000000;" href="#about-us">About us</a>
+                <a style="color: #000000;" href="#contact">Contact us</a>
             </div>
-            <div class="footer-logo">
-                <img loading="lazy" src="vervein.png" alt="vervein">
-                <p>© 2024 VerveIN, Inc.</p>
+            <div>
+                <h2 style="font-weight: bold;">Features</h2>
+                <a style="color: #000000;" href="intrest.html" target="_blank">Show Intrest</a>
+                <a style="color: #000000;" href="book.html" target="_blank">Book Sessions</a>
             </div>
         </div>
     </footer>
+    <footer class="bottom">
+        <div class="legal">
+            <span>© 2023 All rights reserved</span>
+        </div>
+        <div class="links">
+            <a href="https://www.instagram.com/verveinnovations?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="fa-brands fa-instagram"></a>
+            <a href="https://www.linkedin.com/company/vervein/?viewAsMember=true" target="_blank" class="fa-brands fa-linkedin"></a>
+            <a href="https://x.com/verveinnovate" target="_blank" class="fa-brands fa-twitter"></a>
+            <a class="fa-brands fa-youtube"></a>
+        </div>
+    </footer>
+</section>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
